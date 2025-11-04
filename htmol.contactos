@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - StyleMirror</title>
+    <!-- Mismos estilos -->
+</head>
+<body>
+    <nav><!-- Misma navegación --></nav>
+    
+    <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        <h1>Contacta con Nosotros</h1>
+        
+        <!-- Aquí embedes tu formulario de Google Forms -->
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15);">
+            <h3>Formulario de Contacto</h3>
+            <p>¿Interesado en StyleMirror? Déjanos tus datos y te contactaremos:</p>
+            
+            <!-- EJEMPLO - Reemplaza con tu Google Forms embed -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe.../viewform?embedded=true" 
+                    width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">
+                Cargando…
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
