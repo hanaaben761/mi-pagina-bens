@@ -28,3 +28,309 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>StyleMirror - Tu Espejo Inteligente de Moda</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <style> 
+    /* ====== Variables de color ROSA CLARO ====== */ 
+    :root{ 
+      --bg: #fdf2f8; 
+      --text: #701a75; 
+      --muted: #a855f7; 
+      --primary: #ec4899; 
+      --secondary: #fbcfe8; 
+      --accent: #db2777; 
+      --card: #ffffff; 
+      --shadow: 0 10px 28px rgba(236,72,153,.15); 
+      --radius: 20px; 
+    } 
+
+    /* ====== Reset mínimo ====== */ 
+    *{ box-sizing: border-box; } 
+    html,body{ margin:0; padding:0; } 
+    body{ 
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+      color: var(--text); 
+      background: linear-gradient(180deg, #fce7f3 0%, var(--bg) 100%); 
+      line-height: 1.6; 
+      min-height: 100vh; 
+    } 
+
+    /* ====== Barra de navegación ====== */ 
+    nav{ 
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
+      box-shadow: 0 4px 18px rgba(236,72,153,.25); 
+      position: sticky; top:0; z-index: 10; 
+    } 
+    .nav-inner{ 
+      max-width: 1200px; margin: 0 auto; padding: 16px 24px; 
+      display:flex; align-items:center; justify-content:space-between; gap:12px; 
+    } 
+    .brand{ 
+      color:#fff; text-decoration:none; font-weight:700; font-size:1.5rem; 
+      text-shadow: 0 2px 4px rgba(0,0,0,.1); 
+    } 
+    .links a{ 
+      color:#fff; text-decoration:none; margin-left:20px; padding:10px 18px; border-radius:12px; 
+      transition: all 0.3s ease; font-weight: 500; 
+    } 
+    .links a:hover{ background: rgba(255,255,255,.2); transform: translateY(-2px); } 
+
+    /* ====== Sección "hero" ====== */ 
+    .hero{ 
+      max-width: 1200px; margin: 60px auto 0; padding: 0 24px; 
+      display:grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items:center; 
+    } 
+    .hero h1{ 
+      margin:0 0 20px; 
+      font-size: clamp(36px, 4.5vw, 58px); 
+      line-height:1.1; 
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #a855f7 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      font-weight: 800; 
+    } 
+    .hero p{ 
+      margin:0 0 24px; 
+      color: var(--muted); 
+      font-size: 1.2rem; 
+      line-height: 1.7; 
+    } 
+    .btns{ display:flex; gap:20px; flex-wrap:wrap; } 
+    .btn{ 
+      display:inline-block; 
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
+      color:#fff; text-decoration:none; 
+      padding:16px 32px; border-radius:16px; font-weight:600; 
+      box-shadow: 0 8px 25px rgba(236,72,153,.3); 
+      transition: all 0.3s ease; 
+      border: none; 
+      font-size: 1.1rem; 
+    } 
+    .btn:hover{ 
+      transform: translateY(-3px) scale(1.05); 
+      box-shadow: 0 15px 35px rgba(236,72,153,.4); 
+    } 
+    .btn.outline{ 
+      background: transparent; 
+      color: var(--primary); 
+      border: 2px solid var(--primary); 
+      box-shadow: none; 
+    } 
+    .btn.outline:hover{ 
+      background: var(--primary); 
+      color: white; 
+    } 
+
+    /* ====== Características ====== */ 
+    .features{ 
+      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; 
+    } 
+    .feature-card{ 
+      background: var(--card); 
+      padding: 32px; 
+      border-radius: var(--radius); 
+      box-shadow: var(--shadow); 
+      text-align: center; 
+      transition: all 0.3s ease; 
+      border: 1px solid #fbcfe8; 
+    } 
+    .feature-card:hover{ 
+      transform: translateY(-8px) scale(1.02); 
+      box-shadow: 0 20px 40px rgba(236,72,153,.2); 
+    } 
+    .feature-icon{ 
+      font-size: 3rem; 
+      margin-bottom: 20px; 
+      display: block; 
+    } 
+    .feature-card h3{ 
+      margin: 0 0 16px; 
+      color: var(--text); 
+      font-size: 1.4rem; 
+    } 
+    .feature-card p{ 
+      color: var(--muted); 
+      line-height: 1.6; 
+      margin: 0; 
+    } 
+
+    /* ====== Multimedia ====== */ 
+    .multimedia{ 
+      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
+    } 
+    .media-container{ 
+      background: var(--card); 
+      padding: 24px; 
+      border-radius: var(--radius); 
+      box-shadow: var(--shadow); 
+      text-align: center; 
+      border: 1px solid #fbcfe8; 
+    } 
+    .media-container h3{ 
+      color: var(--text); 
+      margin-bottom: 16px; 
+      font-size: 1.3rem; 
+    } 
+    .media-container img{ 
+      width: 100%; 
+      border-radius: 16px; 
+      height: 280px; 
+      object-fit: cover; 
+      border: 3px solid #fbcfe8; 
+    } 
+    .media-container video{ 
+      width: 100%; 
+      border-radius: 16px; 
+      height: 280px; 
+      object-fit: cover; 
+      border: 3px solid #fbcfe8; 
+    } 
+
+    /* ====== Pie ====== */ 
+    footer{ 
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
+      color: white; 
+      text-align:center; 
+      padding: 50px 24px; 
+      margin-top: 80px; 
+    } 
+    .social-links{ 
+      margin: 30px 0; 
+      display: flex; 
+      justify-content: center; 
+      gap: 16px; 
+      flex-wrap: wrap; 
+    } 
+    .social-links a{ 
+      color: white; 
+      text-decoration: none; 
+      padding: 12px 24px; 
+      border: 2px solid white; 
+      border-radius: 12px; 
+      transition: all 0.3s ease; 
+      font-weight: 500; 
+    } 
+    .social-links a:hover{ 
+      background: white; 
+      color: #ec4899; 
+      transform: translateY(-2px); 
+    } 
+
+    /* ====== Responsive ====== */ 
+    @media (max-width: 768px){ 
+      .hero{ 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        margin-top: 40px; 
+        gap: 30px; 
+      } 
+      .multimedia{ 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+      } 
+      .features{ 
+        grid-template-columns: 1fr; 
+        margin: 60px auto; 
+      } 
+      .links a{ 
+        margin-left: 12px; 
+        font-size: 0.9rem; 
+        padding: 8px 14px; 
+      } 
+      .btns{ 
+        justify-content: center; 
+        gap: 16px; 
+      } 
+      .btn{ 
+        padding: 14px 28px; 
+        font-size: 1rem; 
+      } 
+    } 
+  </style> 
+</head> 
+<body> 
+  <!-- NAV --> 
+  <nav> 
+    <div class="nav-inner"> 
+      <a class="brand" href="index.html">✨ StyleMirror</a> 
+      <div class="links"> 
+        <a href="index.html">Inicio</a> 
+        <a href="como-funciona.html">Cómo Funciona</a> 
+        <a href="contacto.html">Contacto</a> 
+      </div> 
+    </div> 
+  </nav> 
+
+  <!-- HERO --> 
+  <section class="hero"> 
+    <div> 
+      <h1>Tu Espejo Inteligente de Moda</h1> 
+      <p>StyleMirror revoluciona tu rutina matutina. Solo dile tu plan del día y te sugerirá el outfit perfecto, accesorios y peinado. ¡Nunca fue tan fácil estar fabuloso!</p> 
+      <div class="btns"> 
+        <a class="btn" href="como-funciona.html">Descubre Cómo Funciona</a> 
+        <a class="btn outline" href="contacto.html">Reserva una Demo</a> 
+      </div> 
+    </div> 
+    <div class="media-container"> 
+      <img src="https://images.unsplash.com/photo-1556159992-e189f6f4c0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="StyleMirror - Espejo inteligente moderno" /> 
+    </div> 
+  </section> 
+
+  <!-- CARACTERÍSTICAS --> 
+  <section class="features"> 
+    <div class="feature-card"> 
+      <div class="feature-icon">👗</div> 
+      <h3>Outfits Inteligentes</h3> 
+      <p>Describe tu día (reunión, cita, deporte) y recibe sugerencias de outfits perfectos para cada ocasión.</p> 
+    </div> 
+    <div class="feature-card"> 
+      <div class="feature-icon">💎</div> 
+      <h3>Accesorios que Marcan</h3> 
+      <p>Completa tu look con accesorios que realzan tu estilo personal y el evento del día.</p> 
+    </div> 
+    <div class="feature-card"> 
+      <div class="feature-icon">💇</div> 
+      <h3>Peinados Perfectos</h3> 
+      <p>Descubre peinados que se adaptan a tu tipo de rostro, cabello y actividades planificadas.</p> 
+    </div> 
+  </section> 
+
+  <!-- MULTIMEDIA --> 
+  <section class="multimedia"> 
+    <div class="media-container"> 
+      <h3>StyleMirror en Acción</h3> 
+      <video controls poster="https://images.unsplash.com/photo-1594736797933-d0d69c3bc2c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"> 
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4"> 
+        Tu navegador no soporta el video. 
+      </video> 
+      <p style="margin-top: 16px; color: var(--muted);">Mira cómo StyleMirror transforma la experiencia de vestirse</p> 
+    </div> 
+    <div class="media-container"> 
+      <h3>Probador Virtual</h3> 
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Probador virtual de StyleMirror" /> 
+      <p style="margin-top: 16px; color: var(--muted);">Prueba ropa que no tienes y descubre dónde comprarla</p> 
+    </div> 
+  </section> 
+
+  <footer> 
+    <p style="font-size: 1.2rem; margin-bottom: 10px;">✨ StyleMirror - Revolucionando tu rutina de moda ✨</p> 
+    <p style="opacity: 0.9;">El futuro de la moda personalizada está aquí</p> 
+    <div class="social-links"> 
+      <a href="https://instagram.com" target="_blank">📷 Instagram</a> 
+      <a href="https://pinterest.com" target="_blank">📌 Pinterest</a> 
+      <a href="https://tiktok.com" target="_blank">🎵 TikTok</a> 
+    </div> 
+    <p style="margin-top: 30px; opacity: 0.8;">© <span id="year"></span> StyleMirror. Todos los derechos reservados.</p> 
+  </footer> 
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script> 
+</body> 
+</html>
