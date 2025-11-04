@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cómo Funciona - StyleMirror</title>
+    <!-- Mismos estilos que index.html -->
+</head>
+<body>
+    <nav><!-- Misma navegación --></nav>
+    
+    <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        <h1>¿Cómo Funciona StyleMirror?</h1>
+        
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15); margin: 20px 0;">
+            <h3>🎯 Paso 1: Cuéntale tu día</h3>
+            <p>"Hoy tengo reunión de trabajo por la mañana, cita para comer y fiesta por la noche"</p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15); margin: 20px 0;">
+            <h3>👗 Paso 2: Recibe sugerencias</h3>
+            <p>El espejo analiza tu guardarropa digital y te muestra 3 outfits perfectos para cada evento</p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15); margin: 20px 0;">
+            <h3>🛍️ Paso 3: Prueba y compra</h3>
+            <p>Usa el probador virtual para prendas que no tienes y compra directamente desde el espejo</p>
+        </div>
+    </div>
+</body>
+</html>
