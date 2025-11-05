@@ -736,3 +736,410 @@
   </script> 
 </body> 
 </html>
+
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>StyleMirror - Espejo Inteligente de Moda</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <style> 
+    /* ====== Variables de color ELEGANTE ====== */ 
+    :root{ 
+      --bg: #fafafa; 
+      --text: #2d3748; 
+      --muted: #718096; 
+      --primary: #e53e3e; 
+      --secondary: #fed7d7; 
+      --accent: #c53030; 
+      --gold: #d4af37; 
+      --silver: #c0c0c0; 
+      --card: #ffffff; 
+      --shadow: 0 20px 40px rgba(0,0,0,.08); 
+      --radius: 12px; 
+    } 
+
+    /* ====== Reset y tipografía elegante ====== */ 
+    *{ box-sizing: border-box; } 
+    html,body{ margin:0; padding:0; } 
+    body{ 
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; 
+      color: var(--text); 
+      background: var(--bg); 
+      line-height: 1.7; 
+      min-height: 100vh; 
+      font-weight: 300; 
+    } 
+
+    /* ====== Navegación minimalista ====== */ 
+    nav{ 
+      background: rgba(255,255,255,.95); 
+      backdrop-filter: blur(20px); 
+      border-bottom: 1px solid rgba(0,0,0,.08); 
+      position: fixed; top:0; width:100%; z-index: 1000; 
+    } 
+    .nav-inner{ 
+      max-width: 1200px; margin: 0 auto; padding: 20px 40px; 
+      display:flex; align-items:center; justify-content:space-between; 
+    } 
+    .brand{ 
+      color: var(--text); text-decoration:none; font-weight: 600; font-size: 1.4rem; 
+      display: flex; align-items: center; gap: 12px; 
+    } 
+    .logo { 
+      width: 45px; height: 45px; 
+      background: linear-gradient(135deg, var(--gold) 0%, var(--silver) 100%); 
+      border-radius: 8px; 
+      display: flex; align-items: center; justify-content: center; 
+      font-weight: 300; color: white; 
+      box-shadow: 0 4px 12px rgba(212,175,55,.3); 
+    } 
+    .links a{ 
+      color: var(--text); text-decoration:none; margin-left: 32px; 
+      padding: 8px 0; font-weight: 400; 
+      position: relative; 
+      transition: all 0.3s ease; 
+    } 
+    .links a:after{ 
+      content: ''; position: absolute; bottom: 0; left: 0; 
+      width: 0; height: 2px; background: var(--primary); 
+      transition: width 0.3s ease; 
+    } 
+    .links a:hover:after{ width: 100%; } 
+    .links a:hover{ color: var(--primary); } 
+
+    /* ====== Hero elegante ====== */ 
+    .hero{ 
+      max-width: 1200px; margin: 120px auto 0; padding: 0 40px; 
+      display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items:center; 
+      min-height: 80vh; 
+    } 
+    .hero-content h1{ 
+      font-size: 3.5rem; font-weight: 300; line-height: 1.1; 
+      margin: 0 0 24px 0; 
+      color: var(--text); 
+    } 
+    .hero-content p{ 
+      font-size: 1.2rem; color: var(--muted); line-height: 1.8; 
+      margin: 0 0 40px 0; 
+    } 
+    .hero-image{ 
+      position: relative; 
+    } 
+    .hero-image img{ 
+      width: 100%; border-radius: var(--radius); 
+      box-shadow: var(--shadow); 
+    } 
+    .lights-effect{ 
+      position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; 
+      background: radial-gradient(circle at 50% 50%, rgba(229,62,62,.1) 0%, transparent 70%); 
+      border-radius: var(--radius); z-index: -1; 
+      animation: pulse 4s ease-in-out infinite; 
+    } 
+    @keyframes pulse { 
+      0%, 100% { opacity: 0.3; } 
+      50% { opacity: 0.6; } 
+    } 
+
+    /* ====== Botones sofisticados ====== */ 
+    .btns{ display:flex; gap: 20px; flex-wrap:wrap; } 
+    .btn{ 
+      display:inline-block; 
+      background: var(--primary); color:#fff; text-decoration:none; 
+      padding: 16px 36px; border-radius: 8px; font-weight: 500; 
+      transition: all 0.3s ease; border: none; font-size: 1rem; 
+      letter-spacing: 0.5px; 
+    } 
+    .btn:hover{ 
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 25px rgba(229,62,62,.3); 
+    } 
+    .btn.outline{ 
+      background: transparent; color: var(--text); 
+      border: 1px solid var(--muted); 
+    } 
+    .btn.outline:hover{ 
+      border-color: var(--primary); color: var(--primary); 
+      box-shadow: 0 10px 25px rgba(0,0,0,.1); 
+    } 
+
+    /* ====== Secciones minimalistas ====== */ 
+    .section{ 
+      max-width: 1200px; margin: 120px auto; padding: 0 40px; 
+    } 
+    .section-header{ 
+      text-align: center; margin-bottom: 80px; 
+    } 
+    .section-header h2{ 
+      font-size: 2.5rem; font-weight: 300; margin: 0 0 16px 0; 
+      color: var(--text); 
+    } 
+    .section-header p{ 
+      font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto; 
+    } 
+
+    /* ====== Grid de características ====== */ 
+    .features-grid{ 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+      gap: 40px; 
+    } 
+    .feature-card{ 
+      background: var(--card); padding: 40px; border-radius: var(--radius); 
+      box-shadow: var(--shadow); transition: all 0.3s ease; 
+    } 
+    .feature-card:hover{ 
+      transform: translateY(-5px); 
+      box-shadow: 0 25px 50px rgba(0,0,0,.12); 
+    } 
+    .feature-icon{ 
+      font-size: 2rem; margin-bottom: 24px; color: var(--primary); 
+    } 
+    .feature-card h3{ 
+      font-size: 1.4rem; font-weight: 500; margin: 0 0 16px 0; 
+    } 
+    .feature-card p{ 
+      color: var(--muted); line-height: 1.7; margin: 0; 
+    } 
+
+    /* ====== Footer elegante ====== */ 
+    footer{ 
+      background: var(--text); color: white; 
+      padding: 80px 40px 40px; margin-top: 120px; 
+    } 
+    .footer-content{ 
+      max-width: 1200px; margin: 0 auto; 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 60px; 
+    } 
+    .footer-bottom{ 
+      max-width: 1200px; margin: 60px auto 0; 
+      padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1); 
+      text-align: center; color: rgba(255,255,255,.6); 
+    } 
+
+    /* ====== Responsive ====== */ 
+    @media (max-width: 968px){ 
+      .hero{ grid-template-columns: 1fr; gap: 60px; text-align: center; } 
+      .hero-content h1{ font-size: 2.8rem; } 
+      .features-grid{ grid-template-columns: 1fr; } 
+      .nav-inner{ padding: 20px; } 
+      .links a{ margin-left: 20px; } 
+      .section{ margin: 80px auto; padding: 0 20px; } 
+    } 
+    @media (max-width: 768px){ 
+      .links{ display: none; } /* Para móviles, considerar menú hamburguesa */ 
+      .hero-content h1{ font-size: 2.2rem; } 
+      .btns{ justify-content: center; } 
+    } 
+  </style> 
+</head> 
+<body> 
+  <!-- NAV --> 
+  <nav> 
+    <div class="nav-inner"> 
+      <a class="brand" href="index.html"> 
+        <div class="logo">SM</div> 
+        StyleMirror 
+      </a> 
+      <div class="links"> 
+        <a href="personalizar.html">Personalizar</a> 
+        <a href="como-funciona.html">Cómo Funciona</a> 
+        <a href="comprar.html">Comprar</a> 
+        <a href="contacto.html">Contacto</a> 
+      </div> 
+    </div> 
+  </nav> 
+
+  <!-- HERO ELEGANTE --> 
+  <section class="hero"> 
+    <div class="hero-content"> 
+      <h1>El espejo que transforma tu estilo</h1> 
+      <p>StyleMirror combina tecnología de inteligencia artificial con un diseño sofisticado. Un espejo de cuerpo completo con iluminación LED profesional que analiza tu guardarropa y sugiere outfits perfectos para cada ocasión.</p> 
+      <div class="btns"> 
+        <a class="btn" href="comprar.html">Descubrir Colección</a> 
+        <a class="btn outline" href="como-funciona.html">Ver Tecnología</a> 
+      </div> 
+    </div> 
+    <div class="hero-image"> 
+      <div class="lights-effect"></div> 
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="StyleMirror - Espejo inteligente con luces LED" /> 
+    </div> 
+  </section> 
+
+  <!-- CARACTERÍSTICAS PRINCIPALES --> 
+  <section class="section"> 
+    <div class="section-header"> 
+      <h2>Tecnología que entiende de moda</h2> 
+      <p>StyleMirror redefine tu experiencia de vestirte con innovación y elegancia</p> 
+    </div> 
+    <div class="features-grid"> 
+      <div class="feature-card"> 
+        <div class="feature-icon">🤖</div> 
+        <h3>Asistente de IA Personal</h3> 
+        <p>Nuestra inteligencia artificial analiza tu estilo, ocasiones y preferencias para crear combinaciones perfectas.</p> 
+      </div> 
+      <div class="feature-card"> 
+        <div class="feature-icon">💡</div> 
+        <h3>Iluminación Profesional</h3> 
+        <p>Luces LED ajustables que simulan diferentes condiciones de luz para asegurar que tu outfit se vea perfecto en cualquier entorno.</p> 
+      </div> 
+      <div class="feature-card"> 
+        <div class="feature-icon">🛍️</div> 
+        <h3>Probador Virtual</h3> 
+        <p>Prueba prendas de tus tiendas favoritas sin salir de casa. El espejo te muestra cómo te quedarían y dónde comprarlas.</p> 
+      </div> 
+    </div> 
+  </section> 
+
+  <!-- COLECCIONES --> 
+  <section class="section"> 
+    <div class="section-header"> 
+      <h2>Modelos Exclusivos</h2> 
+      <p>Diseñados para integrarse perfectamente en tu espacio</p> 
+    </div> 
+    <div class="features-grid"> 
+      <div class="feature-card"> 
+        <div class="feature-icon">✨</div> 
+        <h3>StyleMirror Pro</h3> 
+        <p>Marco en oro rosa con cristal inteligente de última generación. Incluye asistente de voz avanzado.</p> 
+        <a href="comprar.html" class="btn" style="margin-top: 20px; padding: 12px 24px;">Desde €599</a> 
+      </div> 
+      <div class="feature-card"> 
+        <div class="feature-icon">⚡</div> 
+        <h3>StyleMirror Air</h3> 
+        <p>Diseño minimalista con marco plateado. Perfecto para espacios modernos y contemporáneos.</p> 
+        <a href="comprar.html" class="btn" style="margin-top: 20px; padding: 12px 24px;">Desde €399</a> 
+      </div> 
+    </div> 
+  </section> 
+
+  <footer> 
+    <div class="footer-content"> 
+      <div> 
+        <div class="brand" style="color: white; margin-bottom: 20px;"> 
+          <div class="logo">SM</div> 
+          StyleMirror 
+        </div> 
+        <p style="color: rgba(255,255,255,.7);">Tecnología y elegancia para tu rutina de moda.</p> 
+      </div> 
+      <div> 
+        <h4 style="color: white; margin-bottom: 20px;">Explorar</h4> 
+        <a href="personalizar.html" style="color: rgba(255,255,255,.7); display: block; margin-bottom: 10px; text-decoration: none;">Personalizar</a> 
+        <a href="como-funciona.html" style="color: rgba(255,255,255,.7); display: block; margin-bottom: 10px; text-decoration: none;">Cómo Funciona</a> 
+        <a href="comprar.html" style="color: rgba(255,255,255,.7); display: block; margin-bottom: 10px; text-decoration: none;">Comprar</a> 
+      </div> 
+      <div> 
+        <h4 style="color: white; margin-bottom: 20px;">Contacto</h4> 
+        <p style="color: rgba(255,255,255,.7); margin: 0 0 10px 0;">info@stylemirror.com</p> 
+        <p style="color: rgba(255,255,255,.7); margin: 0;">+34 91 123 45 67</p> 
+      </div> 
+    </div> 
+    <div class="footer-bottom"> 
+      <p>&copy; 2024 StyleMirror. Todos los derechos reservados.</p> 
+    </div> 
+  </footer> 
+</body> 
+</html> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Personalizar - StyleMirror</title>
+    <!-- Mismos estilos elegantes -->
+</head>
+<body>
+    <nav><!-- Misma navegación --></nav>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2>Personaliza tu StyleMirror</h2>
+            <p>Elige cada detalle para crear el espejo perfecto para tu espacio</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🌙 Forma del Marco</h3>
+                <div style="margin: 20px 0;">
+                    <button class="btn outline" style="margin: 5px;">Rectangular</button>
+                    <button class="btn" style="margin: 5px;">Ovalado</button>
+                    <button class="btn outline" style="margin: 5px;">Personalizada</button>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎨 Color del Marco</h3>
+                <div style="display: flex; gap: 15px; margin: 20px 0;">
+                    <div style="width: 40px; height: 40px; background: #d4af37; border-radius: 50%; cursor: pointer;"></div>
+                    <div style="width: 40px; height: 40px; background: #c0c0c0; border-radius: 50%; cursor: pointer;"></div>
+                    <div style="width: 40px; height: 40px; background: #2d3748; border-radius: 50%; cursor: pointer;"></div>
+                    <div style="width: 40px; height: 40px; background: #e53e3e; border-radius: 50%; cursor: pointer;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cómo Funciona - StyleMirror</title>
+    <!-- Mismos estilos elegantes -->
+</head>
+<body>
+    <nav><!-- Misma navegación --></nav>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2>Guía de Uso StyleMirror</h2>
+            <p>Aprende a sacar el máximo partido a tu espejo inteligente</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>1. Configuración Inicial</h3>
+                <p>Conecta tu StyleMirror a WiFi y descarga la app companion. El proceso toma menos de 5 minutos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>2. Digitaliza tu Guardarropa</h3>
+                <p>Usa tu smartphone para escanear todas tus prendas. La IA aprenderá tu estilo en 24 horas.</p>
+            </div>
+            <div class="feature-card">
+                <h3>3. Programa tu Día</h3>
+                <p>"StyleMirror, hoy tengo reunión a las 10, almuerzo de trabajo a las 14 y cena a las 21"</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comprar - StyleMirror</title>
+    <!-- Mismos estilos elegantes -->
+</head>
+<body>
+    <nav><!-- Misma navegación --></nav>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2>Selecciona tu StyleMirror</h2>
+            <p>Elige el modelo que mejor se adapte a tus necesidades</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>StyleMirror Pro</h3>
+                <p>€599 - Envío gratuito</p>
+                <ul style="color: var(--muted); margin: 20px 0;">
+                    <li>Marco en oro rosa 18k</li>
+                    <li>Asistente de voz premium</li>
+                    <li>Iluminación LED profesional</li>
+                </ul>
+                <a class="btn" href="pedido.html?modelo=pro">Seleccionar</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
