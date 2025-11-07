@@ -640,5 +640,722 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>StyleMirror - Espejos de Lujo Exclusivos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* ====== VARIABLES DE LUJO EXTREMO ====== */
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --gold: #d4af37;
+            --gold-light: #f4e4b4;
+            --gold-dark: #b8944c;
+            --platinum: #e5e4e2;
+            --silver: #c0c0c0;
+            --crystal: #d4d4d4;
+            --bronze: #cd7f32;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --card-border: rgba(212, 175, 55, 0.4);
+            --shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            --radius: 12px;
+            --glow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
 
+        /* ====== RESET PREMIUM ====== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-weight: 300;
+        }
+
+        /* ====== FONDO DE LUJO ====== */
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(205, 127, 50, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            z-index: -1;
+        }
+
+        /* ====== NAVEGACIÓN DE ALTA GAMA ====== */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid var(--gold);
+            z-index: 1000;
+            padding: 25px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .luxury-logo {
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 12px 0;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ====== HERO SECTION IMPACTANTE ====== */
+        .luxury-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 50px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--bronze));
+            color: var(--bg);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid var(--gold);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--platinum);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--crystal);
+            margin-bottom: 50px;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* ====== BOTONES DE LUJO PERSUASIVOS ====== */
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .luxury-btn {
+            padding: 18px 40px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 400;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .luxury-btn:hover::before {
+            left: 100%;
+        }
+
+        .luxury-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .luxury-btn.primary {
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 500;
+        }
+
+        .luxury-btn.primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 600px;
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+        }
+
+        .mirror-display {
+            width: 300px;
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mirror-display::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+        }
+
+        /* ====== BENEFICIOS PERSUASIVOS ====== */
+        .benefits-section {
+            padding: 120px 50px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--bg);
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--platinum);
+            font-weight: 400;
+        }
+
+        .benefit-card p {
+            color: var(--crystal);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ====== COLECCIÓN EXCLUSIVA ====== */
+        .collection-section {
+            padding: 120px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+
+        .collection-card {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .collection-card:hover::before {
+            left: 100%;
+        }
+
+        .collection-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .collection-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .collection-name {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .collection-price {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--platinum);
+            font-weight: 300;
+        }
+
+        .collection-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .collection-features li {
+            padding: 12px 0;
+            color: var(--crystal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+        }
+
+        /* VIÑETAS MEJORADAS - ORO SOBRE FONDO OSCURO */
+        .collection-features li::before {
+            content: "✦";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        .collection-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* ====== CALL TO ACTION PERSUASIVO ====== */
+        .cta-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(20, 20, 20, 0.95) 100%);
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            color: var(--platinum);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ====== GARANTÍAS Y SEGURIDAD ====== */
+        .guarantees-section {
+            padding: 80px 50px;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guarantee-item {
+            padding: 30px;
+        }
+
+        .guarantee-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .guarantee-item h3 {
+            color: var(--platinum);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .guarantee-item p {
+            color: var(--crystal);
+            font-size: 0.9rem;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .luxury-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 60px;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 30px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .benefits-grid, .collection-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FONDO DE LUJO -->
+    <div class="luxury-bg"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="luxury-nav">
+        <div class="nav-container">
+            <a href="index.html" class="luxury-logo">StyleMirror</a>
+            <div class="nav-links">
+                <a href="coleccion.html">Colección</a>
+                <a href="sobre-nosotros.html">Nosotros</a>
+                <a href="proceso-artesanal.html">Artesanía</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="luxury-hero">
+        <div class="hero-content">
+            <div class="hero-badge">Edición Limitada 2024</div>
+            <h1 class="hero-title">El Espejo Que Define Su Legado</h1>
+            <h2 class="hero-subtitle">Más que un espejo, una declaración de estilo atemporal para los espacios más exclusivos</h2>
+            <p class="hero-description">
+                StyleMirror representa la culminación de tres generaciones de maestría artesanal. 
+                Cada pieza es creada con materiales exquisitos y técnicas ancestrales, ofreciendo 
+                no solo un reflejo perfecto, sino una inversión que aprecia con el tiempo.
+            </p>
+            <div class="hero-buttons">
+                <a href="coleccion.html" class="luxury-btn primary">Descubrir Colección</a>
+                <a href="contacto.html" class="luxury-btn">Consulta Personal</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="mirror-display"></div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-section">
+        <h2 class="section-title">Por Qué Elegir StyleMirror</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💎</div>
+                <h3>Inversión Atemporal</h3>
+                <p>Los espejos StyleMirror no se deprecian. Como piezas de arte funcional, mantienen y aumentan su valor con los años, convirtiéndose en herencias familiares.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Tecnología Discreta</h3>
+                <p>Integramos sistemas inteligentes que se activan solo cuando se necesitan, manteniendo la pureza estética mientras ofrecen funcionalidad avanzada.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Garantía Vitalicia</h3>
+                <p>Respaldamos nuestra artesanía con garantías que trascienden generaciones. Su inversión está protegida para siempre.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLECCIÓN -->
+    <section class="collection-section">
+        <h2 class="section-title">Colección Signature</h2>
+        <div class="collection-grid">
+            <div class="collection-card">
+                <div class="collection-badge">Más Vendido</div>
+                <h3 class="collection-name">Heritage Gold</h3>
+                <div class="collection-price">€14,800</div>
+                <ul class="collection-features">
+                    <li>Marco en oro 24k macizo certificado</li>
+                    <li>Cristal de venecia antirreflejos</li>
+                    <li>Procesado artesanal de 200 horas</li>
+                    <li>Garantía vitalicia transferible</li>
+                    <li>Certificado de autenticidad</li>
+                    <li>Instalación premium incluida</li>
+                </ul>
+                <a href="contacto.html" class="luxury-btn">Solicitar Información</a>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-badge">Tecnología Avanzada</div>
+                <h3 class="collection-name">Platinum Vision</h3>
+                <div class="collection-price">€11,200</div>
+                <ul class="collection-features">
+                    <li>Marco en platino 950 de primera calidad</li>
+                    <li>Sistema de iluminación profesional</li>
+                    <li>Integración domótica completa</li>
+                    <li>Control por voz y gestos</li>
+                    <li>Actualizaciones de por vida</li>
+                    <li>Asistente de estilo personal</li>
+                </ul>
+                <a href="contacto.html" class="luxury-btn">Solicitar Información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+        <div class="urgency-badge">Solo 3 Unidades Disponibles</div>
+        <h2 class="cta-title">Transforme Su Espacio Hoy</h2>
+        <p class="cta-subtitle">
+            Cada StyleMirror es una pieza única. No espere para adquirir la suya. 
+            Nuestros asesores están listos para guiarle en la elección perfecta para su hogar o proyecto.
+        </p>
+        <a href="contacto.html" class="luxury-btn primary">Agendar Consulta Privada</a>
+    </section>
+
+    <!-- GARANTÍAS -->
+    <section class="guarantees-section">
+        <div class="guarantees-grid">
+            <div class="guarantee-item">
+                <div class="guarantee-icon">🚚</div>
+                <h3>Envío Premium</h3>
+                <p>Entrega asegurada y instalación profesional en todo el mundo</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">🔄</div>
+                <h3>Garantía Real</h3>
+                <p>Cobertura vitalicia que protege su inversión para siempre</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">💳</div>
+                <h3>Financiamiento</h3>
+                <p>Opciones de pago flexibles para clientes exclusivos</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">👑</div>
+                <h3>Servicio Real</h3>
+                <p>Atención personalizada 24/7 para clientes StyleMirror</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Efectos de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contador de unidades (efecto de urgencia)
+        let units = 3;
+        const updateCounter = () => {
+            if (units > 0) {
+                document.querySelector('.urgency-badge').textContent = `Solo ${units} Unidades Disponibles`;
+            }
+        };
+
+        // Simular venta cada 30 segundos (solo para demostración)
+        setInterval(() => {
+            if (units > 0 && Math.random() > 0.7) {
+                units--;
+                updateCounter();
+            }
+        }, 30000);
+
+        // Efecto de aparición en scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.benefit-card, .collection-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
  
+
