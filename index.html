@@ -4290,3 +4290,574 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>StyleMirror - Espejos Artesanales de Lujo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* ====== VARIABLES DE LUJO ELEGANTE ====== */
+        :root {
+            --bg: #0a0a0a;
+            --text: #f5f5f5;
+            --gold: #d4af37;
+            --gold-light: #f4e4b4;
+            --gold-dark: #b8944c;
+            --platinum: #e8e8e8;
+            --silver: #c0c0c0;
+            --crystal: #d4d4d4;
+            --bronze: #cd7f32;
+            --card-bg: rgba(30, 30, 30, 0.8);
+            --card-border: rgba(212, 175, 55, 0.3);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+        }
+
+        /* ====== RESET Y BASE ====== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ====== FONDO SOPHISTICADO ====== */
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%),
+                linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
+            z-index: -1;
+        }
+
+        /* ====== NAVEGACIÓN ELEGANTE ====== */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gold);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .luxury-logo {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ====== HERO SECTION ====== */
+        .luxury-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 60px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--platinum);
+            margin-bottom: 32px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--crystal);
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+
+        /* ====== BOTONES DORADOS ELEGANTES ====== */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .luxury-btn {
+            padding: 16px 32px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .luxury-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        .luxury-btn.primary {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        .luxury-btn.primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 500px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ====== PERSONALIZACIÓN INTEGRADA ====== */
+        .customization-section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .customization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .custom-option {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+        }
+
+        .option-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .color-option.selected {
+            border-color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .text-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: var(--text);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .finish-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .finish-option {
+            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .finish-option.selected {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ====== CÓMO FUNCIONA ====== */
+        .how-it-works {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--platinum);
+        }
+
+        .step p {
+            color: var(--crystal);
+            line-height: 1.7;
+        }
+
+        /* ====== FOOTER ====== */
+        .luxury-footer {
+            background: var(--card-bg);
+            padding: 60px 40px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section a {
+            color: var(--crystal);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--card-border);
+            color: var(--silver);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .luxury-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 60px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .customization-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FONDO ELEGANTE -->
+    <div class="luxury-bg"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="luxury-nav">
+        <div class="nav-container">
+            <a href="index.html" class="luxury-logo">STYLEMIRROR</a>
+            <div class="nav-links">
+                <a href="coleccion.html">Colección</a>
+                <a href="#personalizar">Personalizar</a>
+                <a href="#funciona">Cómo Funciona</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="luxury-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">StyleMirror Élite</h1>
+            <h2 class="hero-subtitle">Arte y Artesanía en Cada Reflejo</h2>
+            <p class="hero-description">
+                Descubra la fusión perfecta entre la tradición artesanal y el diseño contemporáneo. 
+                Cada StyleMirror es una pieza única, creada por maestros vidrieros que dominan 
+                técnicas ancestrales perfeccionadas a lo largo de generaciones.
+            </p>
+            <div class="hero-buttons">
+                <a href="coleccion.html" class="luxury-btn primary">Ver Colección</a>
+                <a href="#personalizar" class="luxury-btn">Personalizar</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <!-- Espacio para visualización del espejo -->
+        </div>
+    </section>
+
+    <!-- PERSONALIZACIÓN INTEGRADA -->
+    <section id="personalizar" class="customization-section">
+        <h2 class="section-title">Personalice Su StyleMirror</h2>
+        <div class="customization-grid">
+            <div class="custom-option">
+                <h3 class="option-title">Acabado del Marco</h3>
+                <div class="color-options">
+                    <div class="color-option selected" style="background: #d4af37;" title="Oro 24k"></div>
+                    <div class="color-option" style="background: #e5e4e2;" title="Platino"></div>
+                    <div class="color-option" style="background: #b76e79;" title="Oro Rosa"></div>
+                    <div class="color-option" style="background: #000000;" title="Negro Obsidiana"></div>
+                    <div class="color-option" style="background: #cd7f32;" title="Bronce"></div>
+                </div>
+            </div>
+
+            <div class="custom-option">
+                <h3 class="option-title">Inscripción Personal</h3>
+                <input type="text" class="text-input" placeholder="Su nombre o iniciales" maxlength="20">
+                <input type="text" class="text-input" placeholder="Frase personalizada" maxlength="40">
+                <select class="text-input">
+                    <option>Tipografía Clásica</option>
+                    <option>Tipografía Moderna</option>
+                    <option>Tipografía Script Elegante</option>
+                </select>
+            </div>
+
+            <div class="custom-option">
+                <h3 class="option-title">Acabado de Superficie</h3>
+                <div class="finish-options">
+                    <div class="finish-option selected">Brillante Espejo</div>
+                    <div class="finish-option">Satinado Suave</div>
+                    <div class="finish-option">Mate Elegante</div>
+                    <div class="finish-option">Texturizado Artesanal</div>
+                </div>
+            </div>
+
+            <div class="custom-option">
+                <h3 class="option-title">Tamaño y Forma</h3>
+                <div class="finish-options">
+                    <div class="finish-option">Rectangular Clásico</div>
+                    <div class="finish-option selected">Ovalado Elegante</div>
+                    <div class="finish-option">Redondo Moderno</div>
+                    <div class="finish-option">Personalizado</div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="#contacto" class="luxury-btn primary">Solicitar Cotización</a>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="funciona" class="how-it-works">
+        <h2 class="section-title">El Proceso StyleMirror</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Consulta de Diseño</h3>
+                <p>Nuestros especialistas en diseño trabajan con usted para entender sus necesidades y preferencias estéticas.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Artesanía Tradicional</h3>
+                <p>Maestros vidrieros aplican técnicas centenarias para crear su espejo con la más alta calidad.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Tecnología Discreta</h3>
+                <p>Integramos sistemas avanzados que complementan la artesanía sin comprometer la estética.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Instalación Premium</h3>
+                <p>Nuestro equipo especializado instala su StyleMirror garantizando perfección en cada detalle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>StyleMirror</h3>
+                <p style="color: var(--crystal); line-height: 1.6;">Espejos artesanales de lujo creados para los más exigentes.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Explorar</h3>
+                <a href="index.html">Inicio</a>
+                <a href="coleccion.html">Colección</a>
+                <a href="#personalizar">Personalizar</a>
+                <a href="#funciona">Cómo Funciona</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <a href="mailto:info@stylemirror.com">info@stylemirror.com</a>
+                <a href="tel:+34911234567">+34 911 234 567</a>
+                <p style="color: var(--crystal); margin-top: 10px;">Madrid, España</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 StyleMirror. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para la personalización
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        document.querySelectorAll('.finish-option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.finish-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
