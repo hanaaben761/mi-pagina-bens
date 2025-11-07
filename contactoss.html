@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Proceso Artesanal - StyleMirror</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #f5f5f5;
+            --gold: #d4af37;
+            --gold-light: #f4e4b4;
+            --platinum: #e8e8e8;
+            --silver: #c0c0c0;
+            --crystal: #d4d4d4;
+            --card-bg: rgba(30, 30, 30, 0.8);
+            --card-border: rgba(212, 175, 55, 0.3);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%),
+                linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
+            z-index: -1;
+        }
+
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gold);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .luxury-logo {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .process-hero {
+            padding: 140px 40px 80px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--platinum);
+            line-height: 1.6;
+        }
+
+        .process-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 40px;
+            align-items: start;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            color: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .step-content h3 {
+            color: var(--platinum);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .step-content p {
+            color: var(--crystal);
+            line-height: 1.7;
+        }
+
+        .materials-section {
+            padding: 80px 40px;
+            background: var(--card-bg);
+            margin-top: 80px;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .material-card {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .material-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .material-card h3 {
+            color: var(--platinum);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .material-card p {
+            color: var(--crystal);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .process-step {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="luxury-bg"></div>
+
+    <nav class="luxury-nav">
+        <div class="nav-container">
+            <a href="index.html" class="luxury-logo">STYLEMIRROR</a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="coleccion.html">Colección</a>
+                <a href="proceso-artesanal.html">Proceso Artesanal</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="process-hero">
+        <h1 class="hero-title">El Arte de la Vidriería</h1>
+        <p class="hero-subtitle">Descubra el meticuloso proceso de 200 horas que transforma materiales brutos en obras maestras reflectantes.</p>
+    </section>
+
+    <section class="process-section">
+        <h2 class="section-title">Nuestro Proceso de Fabricación</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Selección de Materiales</h3>
+                    <p>Comenzamos seleccionando personalmente cada lámina de cristal en nuestras canteras asociadas de Venecia y Bohemia. Solo el 2% del cristal extraído cumple con nuestros estándares de pureza y transparencia. Cada pieza es inspeccionada bajo luz polarizada para detectar imperfecciones microscópicas.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Corte y Moldeado</h3>
+                    <p>Nuestros maestros cortadores utilizan técnicas diamantadas heredadas de generaciones anteriores. Cada corte es realizado manualmente, permitiendo formas orgánicas y personalizadas imposibles de lograr con métodos industriales. El proceso puede tomar hasta 40 horas para diseños complejos.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Pulido a Mano</h3>
+                    <p>El pulido se realiza completamente a mano usando piedras de cuarzo y diamante natural. Este proceso de 60 horas elimina cualquier distorsión óptica y crea un acabado perfectamente liso. La temperatura y humedad del taller son controladas meticulosamente durante este proceso crítico.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Plateado Tradicional</h3>
+                    <p>Utilizamos la técnica de plateado con plata pura, un método ancestral que produce reflejos más profundos y naturales. Aplicamos 7 capas de solución de plata, cada una curada durante 24 horas. Este proceso garantiza una durabilidad excepcional y un brillo que perdura generaciones.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Montaje del Marco</h3>
+                    <p>Cada marco es creado por nuestros orfebres utilizando metales preciosos seleccionados. Las uniones son realizadas mediante técnicas de soldadura invisible, creando piezas que parecen esculpidas de una sola masa. Los detalles finales son aplicados manualmente con herramientas especializadas.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Control de Calidad Final</h3>
+                    <p>Cada StyleMirror pasa por 27 puntos de control de calidad, incluyendo pruebas de reflexión, mediciones de planitud y pruebas de durabilidad. Solo las piezas que superan todos los estándares reciben nuestro sello de certificación y son empaquetadas para su entrega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="materials-section">
+        <h2 class="section-title">Materiales Exclusivos</h2>
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="material-icon">🔍</div>
+                <h3>Cristal de Venecia</h3>
+                <p>Extraído de canteras históricas, conocido por su pureza excepcional y propiedades ópticas superiores.</p>
+            </div>
+            <div class="material-card">
+                <div class="material-icon">💍</div>
+                <h3>Plata de Ley</h3>
+                <p>Plata 999 de máxima pureza para el proceso de plateado, garantizando reflejos perfectos.</p>
+            </div>
+            <div class="material-card">
+                <div class="material-icon">⚒️</div>
+                <h3>Maderas Nobles</h3>
+                <p>Maderas centenarias de nogal y caoba, curadas naturalmente durante décadas.</p>
+            </div>
+            <div class="material-card">
+                <div class="material-icon">💎</div>
+                <h3>Metales Preciosos</h3>
+                <p>Oro 24k, platino y titano trabajados por nuestros maestros orfebres.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
