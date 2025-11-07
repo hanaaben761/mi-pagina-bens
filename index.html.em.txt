@@ -197,5 +197,448 @@
   </script> 
 </body> 
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Colección - StyleMirror</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* ====== VARIABLES DE LUJO ELEGANTE ====== */
+        :root {
+            --bg: #0a0a0a;
+            --text: #f5f5f5;
+            --gold: #d4af37;
+            --gold-light: #f4e4b4;
+            --gold-dark: #b8944c;
+            --platinum: #e8e8e8;
+            --silver: #c0c0c0;
+            --crystal: #d4d4d4;
+            --bronze: #cd7f32;
+            --card-bg: rgba(30, 30, 30, 0.8);
+            --card-border: rgba(212, 175, 55, 0.3);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+        }
+
+        /* ====== RESET Y BASE ====== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ====== FONDO SOPHISTICADO ====== */
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%),
+                linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
+            z-index: -1;
+        }
+
+        /* ====== NAVEGACIÓN ELEGANTE ====== */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gold);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .luxury-logo {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ====== HERO COLECCIÓN ====== */
+        .collection-hero {
+            padding: 140px 40px 80px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--platinum);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ====== MODELOS DE ESPEJOS ====== */
+        .models-section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .model-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .model-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .model-name {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .model-price {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--platinum);
+        }
+
+        .model-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .model-features li {
+            padding: 8px 0;
+            color: var(--crystal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .model-features li:before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .model-features li:last-child {
+            border-bottom: none;
+        }
+
+        .luxury-btn {
+            padding: 16px 32px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .luxury-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        /* ====== COMPARACIÓN ====== */
+        .comparison-section {
+            padding: 100px 40px;
+            background: var(--card-bg);
+            margin-top: 80px;
+        }
+
+        .comparison-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .comparison-table th {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            color: var(--crystal);
+        }
+
+        .feature-check {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FONDO ELEGANTE -->
+    <div class="luxury-bg"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="luxury-nav">
+        <div class="nav-container">
+            <a href="index.html" class="luxury-logo">STYLEMIRROR</a>
+            <div class="nav-links">
+                <a href="coleccion.html">Colección</a>
+                <a href="index.html#personalizar">Personalizar</a>
+                <a href="index.html#funciona">Cómo Funciona</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO COLECCIÓN -->
+    <section class="collection-hero">
+        <h1 class="hero-title">Nuestra Colección Signature</h1>
+        <p class="hero-subtitle">Descubra la excelencia artesanal en cada uno de nuestros modelos exclusivos, creados para los espacios más exigentes.</p>
+    </section>
+
+    <!-- MODELOS DE ESPEJOS -->
+    <section class="models-section">
+        <div class="models-grid">
+            <div class="model-card">
+                <div class="model-badge">Más Vendido</div>
+                <h3 class="model-name">Heritage Gold</h3>
+                <div class="model-price">€12,500</div>
+                <ul class="model-features">
+                    <li>Marco en oro 24k macizo certificado</li>
+                    <li>Cristal de venecia antirreflejos</li>
+                    <li>Procesado artesanal de 200 horas</li>
+                    <li>Certificado de autenticidad y procedencia</li>
+                    <li>Garantía vitalicia</li>
+                    <li>Entrega con instalación personalizada</li>
+                </ul>
+                <a href="index.html#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
+            </div>
+
+            <div class="model-card">
+                <div class="model-badge">Tecnología Avanzada</div>
+                <h3 class="model-name">Platinum Vision</h3>
+                <div class="model-price">€9,800</div>
+                <ul class="model-features">
+                    <li>Marco en platino 950 de primera calidad</li>
+                    <li>Sistema de iluminación ambiental regulable</li>
+                    <li>Tecnología de reconocimiento de materiales</li>
+                    <li>Integración con sistemas de domótica</li>
+                    <li>Asistente de estilo personalizado</li>
+                    <li>Actualizaciones de software gratuitas</li>
+                </ul>
+                <a href="index.html#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
+            </div>
+
+            <div class="model-card">
+                <div class="model-badge">Edición Limitada</div>
+                <h3 class="model-name">Rose Gold Couture</h3>
+                <div class="model-price">€8,200</div>
+                <ul class="model-features">
+                    <li>Marco en oro rosa 18k con detalles</li>
+                    <li>Cristal con tratamiento exclusivo antihuellas</li>
+                    <li>Sistema de análisis de color personalizado</li>
+                    <li>Memoria de preferencias de usuario</li>
+                    <li>Actualizaciones de estilo estacionales</li>
+                    <li>App companion exclusiva</li>
+                </ul>
+                <a href="index.html#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
+            </div>
+
+            <div class="model-card">
+                <div class="model-badge">Nueva Colección</div>
+                <h3 class="model-name">Black Diamond</h3>
+                <div class="model-price">€15,300</div>
+                <ul class="model-features">
+                    <li>Marco en titano negro con diamantes</li>
+                    <li>Cristal de zafiro anti-rayaduras</li>
+                    <li>Sistema de iluminación con fibra óptica</li>
+                    <li>Reconocimiento facial 3D avanzado</li>
+                    <li>Superficie nano-revestida</li>
+                    <li>Edición numerada y firmada</li>
+                </ul>
+                <a href="index.html#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARACIÓN -->
+    <section class="comparison-section">
+        <h2 class="section-title">Comparativa de Modelos</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Heritage Gold</th>
+                    <th>Platinum Vision</th>
+                    <th>Rose Gold Couture</th>
+                    <th>Black Diamond</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Material del Marco</td>
+                    <td>Oro 24k</td>
+                    <td>Platino 950</td>
+                    <td>Oro Rosa 18k</td>
+                    <td>Titano Negro</td>
+                </tr>
+                <tr>
+                    <td>Tecnología Integrada</td>
+                    <td>Básica</td>
+                    <td class="feature-check">Completa</td>
+                    <td class="feature-check">Avanzada</td>
+                    <td class="feature-check">Premium</td>
+                </tr>
+                <tr>
+                    <td>Garantía</td>
+                    <td>Vitalicia</td>
+                    <td>10 años</td>
+                    <td>10 años</td>
+                    <td>Vitalicia</td>
+                </tr>
+                <tr>
+                    <td>Instalación Incluida</td>
+                    <td class="feature-check">✓</td>
+                    <td class="feature-check">✓</td>
+                    <td class="feature-check">✓</td>
+                    <td class="feature-check">✓</td>
+                </tr>
+                <tr>
+                    <td>Personalización</td>
+                    <td class="feature-check">✓</td>
+                    <td class="feature-check">✓</td>
+                    <td class="feature-check">✓</td>
+                    <td class="feature-check">✓</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
 
  
