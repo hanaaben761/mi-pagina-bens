@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Colección Exclusiva - StyleMirror</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* ====== VARIABLES DE LUJO EXTREMO ====== */
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --gold: #d4af37;
+            --gold-light: #f4e4b4;
+            --gold-dark: #b8944c;
+            --platinum: #e5e4e2;
+            --silver: #c0c0c0;
+            --crystal: #d4d4d4;
+            --bronze: #cd7f32;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --card-border: rgba(212, 175, 55, 0.4);
+            --shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            --radius: 12px;
+            --glow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ====== RESET PREMIUM ====== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-weight: 300;
+        }
+
+        /* ====== FONDO DE LUJO ====== */
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(205, 127, 50, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            z-index: -1;
+        }
+
+        /* ====== NAVEGACIÓN DE ALTA GAMA ====== */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid var(--gold);
+            z-index: 1000;
+            padding: 25px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .luxury-logo {
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            padding: 12px 0;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ====== HERO SECTION IMPACTANTE ====== */
+        .luxury-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 50px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--bronze));
+            color: var(--bg);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid var(--gold);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--platinum);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ====== BOTONES DE LUJO PERSUASIVOS ====== */
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .luxury-btn {
+            padding: 18px 40px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 400;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .luxury-btn:hover::before {
+            left: 100%;
+        }
+
+        .luxury-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .luxury-btn.primary {
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 500;
+        }
+
+        .luxury-btn.primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        /* ====== SECCIÓN DE COLECCIONES ====== */
+        .collections-section {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .collection-card {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .collection-card:hover::before {
+            left: 100%;
+        }
+
+        .collection-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .collection-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .collection-name {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .collection-price {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--platinum);
+            font-weight: 300;
+        }
+
+        .collection-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .collection-features li {
+            padding: 12px 0;
+            color: var(--crystal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+        }
+
+        /* VIÑETAS MEJORADAS - ORO SOBRE FONDO OSCURO */
+        .collection-features li::before {
+            content: "✦";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        .collection-features li:last-child {
+            border-bottom: none;
+        }
+
+        .collection-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* ====== SECCIÓN DE PROCESO ARTESANAL ====== */
+        .process-section {
+            padding: 100px 50px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--bronze));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--bg);
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--platinum);
+            font-weight: 400;
+        }
+
+        .process-step p {
+            color: var(--crystal);
+            line-height: 1.7;
+        }
+
+        /* ====== CALL TO ACTION PERSUASIVO ====== */
+        .cta-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(20, 20, 20, 0.95) 100%);
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            color: var(--platinum);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ====== FOOTER ====== */
+        .luxury-footer {
+            background: var(--card-bg);
+            padding: 60px 50px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section a {
+            color: var(--crystal);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--card-border);
+            color: var(--silver);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .luxury-hero {
+                padding: 150px 30px 80px;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 30px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .collection-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FONDO DE LUJO -->
+    <div class="luxury-bg"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="luxury-nav">
+        <div class="nav-container">
+            <a href="index.html" class="luxury-logo">StyleMirror</a>
+            <div class="nav-links">
+                <a href="coleccion.html" style="color: var(--gold);">Colección</a>
+                <a href="sobre-nosotros.html">Nosotros</a>
+                <a href="proceso-artesanal.html">Artesanía</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="luxury-hero">
+        <div class="hero-content">
+            <div class="hero-badge">Edición Limitada 2024</div>
+            <h1 class="hero-title">Nuestra Colección Signature</h1>
+            <h2 class="hero-subtitle">Descubra los espejos más exclusivos jamás creados, diseñados para espacios que exigen perfección y elegancia atemporal</h2>
+            <div class="hero-buttons">
+                <a href="contacto.html" class="luxury-btn primary">Agendar Vista Privada</a>
+                <a href="proceso-artesanal.html" class="luxury-btn">Conocer Nuestra Artesanía</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLECCIONES -->
+    <section class="collections-section">
+        <h2 class="section-title">Esperos Signature</h2>
+        <div class="collections-grid">
+            <div class="collection-card">
+                <div class="collection-badge">Más Vendido</div>
+                <h3 class="collection-name">Heritage Gold</h3>
+                <div class="collection-price">€14,800</div>
+                <ul class="collection-features">
+                    <li>Marco en oro 24k macizo certificado</li>
+                    <li>Cristal de venecia antirreflejos</li>
+                    <li>Procesado artesanal de 200 horas</li>
+                    <li>Garantía vitalicia transferible</li>
+                    <li>Certificado de autenticidad</li>
+                    <li>Instalación premium incluida</li>
+                </ul>
+                <div class="collection-actions">
+                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
+                    <a href="heritage-gold.html" class="luxury-btn">Ver Detalles</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-badge">Tecnología Avanzada</div>
+                <h3 class="collection-name">Platinum Vision</h3>
+                <div class="collection-price">€11,200</div>
+                <ul class="collection-features">
+                    <li>Marco en platino 950 de primera calidad</li>
+                    <li>Sistema de iluminación profesional</li>
+                    <li>Integración domótica completa</li>
+                    <li>Control por voz y gestos</li>
+                    <li>Actualizaciones de por vida</li>
+                    <li>Asistente de estilo personal</li>
+                </ul>
+                <div class="collection-actions">
+                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
+                    <a href="platinum-vision.html" class="luxury-btn">Ver Detalles</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-badge">Nueva Colección</div>
+                <h3 class="collection-name">Royal Crystal</h3>
+                <div class="collection-price">€9,600</div>
+                <ul class="collection-features">
+                    <li>Cristal de roca tallado a mano</li>
+                    <li>Incrustaciones de diamantes naturales</li>
+                    <li>Base de mármol de Carrara</li>
+                    <li>Iluminación ambiental regulable</li>
+                    <li>Sistema de niebla antimanchas</li>
+                    <li>Certificado GIA incluido</li>
+                </ul>
+                <div class="collection-actions">
+                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
+                    <a href="royal-crystal.html" class="luxury-btn">Ver Detalles</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-badge">Edición Limitada</div>
+                <h3 class="collection-name">Black Diamond</h3>
+                <div class="collection-price">€18,500</div>
+                <ul class="collection-features">
+                    <li>Marco de obsidiana pulida</li>
+                    <li>Incrustaciones de diamantes negros</li>
+                    <li>Acabado mate premium</li>
+                    <li>Sistema de reconocimiento facial</li>
+                    <li>Pantalla táctil oculta</li>
+                    <li>Limitado a 50 unidades mundial</li>
+                </ul>
+                <div class="collection-actions">
+                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
+                    <a href="black-diamond.html" class="luxury-btn">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO ARTESANAL -->
+    <section class="process-section">
+        <h2 class="section-title">Artesanía Excepcional</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Selección de Materiales</h3>
+                <p>Cada material es seleccionado personalmente de las mejores canteras y proveedores a nivel mundial, garantizando calidad y exclusividad.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Diseño Personalizado</h3>
+                <p>Nuestros maestros artesanos trabajan con usted para crear un diseño único que refleje su estilo y personalidad.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Fabricación Artesanal</h3>
+                <p>Cada espero requiere entre 150-300 horas de trabajo manual especializado, asegurando perfección en cada detalle.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Control de Calidad</h3>
+                <p>Rigurosos controles garantizan que cada pieza cumple con los estándares más exigentes antes de llegar a su hogar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+        <div class="urgency-badge">Solo 3 Unidades Disponibles por Modelo</div>
+        <h2 class="cta-title">Convierta Su Hogar en una Galería</h2>
+        <p class="cta-subtitle">
+            Cada StyleMirror es una obra maestra única. No espere para adquirir la suya. 
+            Nuestros asesores de arte están listos para ayudarle a elegir la pieza perfecta.
+        </p>
+        <a href="contacto.html" class="luxury-btn primary">Agendar Consulta Privada</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>StyleMirror</h3>
+                <p style="color: var(--crystal); line-height: 1.6;">Espejos artesanales de lujo creados para los más exigentes.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Explorar</h3>
+                <a href="index.html">Inicio</a>
+                <a href="coleccion.html">Colección</a>
+                <a href="sobre-nosotros.html">Sobre Nosotros</a>
+                <a href="proceso-artesanal.html">Proceso Artesanal</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <a href="contacto.html">Consultas Generales</a>
+                <a href="contacto.html">Ventas Empresariales</a>
+                <a href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
+                <a href="contacto.html">Soporte</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="terminos.html">Términos y Condiciones</a>
+                <a href="privacidad.html">Política de Privacidad</a>
+                <a href="garantias.html">Garantías</a>
+                <a href="devoluciones.html">Devoluciones</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 StyleMirror. Todos los derechos reservados. | Madrid, España</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efectos de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efecto de aparición en scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.collection-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
