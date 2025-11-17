@@ -2,1246 +2,112 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cómo Funciona - StyleMirror</title>
-    <!-- Mismos estilos que index.html -->
-</head>
-<body>
-    <nav><!-- Misma navegación --></nav>
-    
-    <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-        <h1>¿Cómo Funciona StyleMirror?</h1>
-        
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15); margin: 20px 0;">
-            <h3>🎯 Paso 1: Cuéntale tu día</h3>
-            <p>"Hoy tengo reunión de trabajo por la mañana, cita para comer y fiesta por la noche"</p>
-        </div>
-        
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15); margin: 20px 0;">
-            <h3>👗 Paso 2: Recibe sugerencias</h3>
-            <p>El espejo analiza tu guardarropa digital y te muestra 3 outfits perfectos para cada evento</p>
-        </div>
-        
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 28px rgba(139,92,246,.15); margin: 20px 0;">
-            <h3>🛍️ Paso 3: Prueba y compra</h3>
-            <p>Usa el probador virtual para prendas que no tienes y compra directamente desde el espejo</p>
-        </div>
-    </div>
-</body>
-</html>
-<!DOCTYPE html> 
-<html lang="es"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <title>StyleMirror - Tu Espejo Inteligente de Moda</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-  <style> 
-    /* ====== Variables de color ROSA CLARO ====== */ 
-    :root{ 
-      --bg: #fdf2f8; 
-      --text: #701a75; 
-      --muted: #a855f7; 
-      --primary: #ec4899; 
-      --secondary: #fbcfe8; 
-      --accent: #db2777; 
-      --card: #ffffff; 
-      --shadow: 0 10px 28px rgba(236,72,153,.15); 
-      --radius: 20px; 
-    } 
-
-    /* ====== Reset mínimo ====== */ 
-    *{ box-sizing: border-box; } 
-    html,body{ margin:0; padding:0; } 
-    body{ 
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
-      color: var(--text); 
-      background: linear-gradient(180deg, #fce7f3 0%, var(--bg) 100%); 
-      line-height: 1.6; 
-      min-height: 100vh; 
-    } 
-
-    /* ====== Barra de navegación ====== */ 
-    nav{ 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
-      box-shadow: 0 4px 18px rgba(236,72,153,.25); 
-      position: sticky; top:0; z-index: 10; 
-    } 
-    .nav-inner{ 
-      max-width: 1200px; margin: 0 auto; padding: 16px 24px; 
-      display:flex; align-items:center; justify-content:space-between; gap:12px; 
-    } 
-    .brand{ 
-      color:#fff; text-decoration:none; font-weight:700; font-size:1.5rem; 
-      text-shadow: 0 2px 4px rgba(0,0,0,.1); 
-    } 
-    .links a{ 
-      color:#fff; text-decoration:none; margin-left:20px; padding:10px 18px; border-radius:12px; 
-      transition: all 0.3s ease; font-weight: 500; 
-    } 
-    .links a:hover{ background: rgba(255,255,255,.2); transform: translateY(-2px); } 
-
-    /* ====== Sección "hero" ====== */ 
-    .hero{ 
-      max-width: 1200px; margin: 60px auto 0; padding: 0 24px; 
-      display:grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items:center; 
-    } 
-    .hero h1{ 
-      margin:0 0 20px; 
-      font-size: clamp(36px, 4.5vw, 58px); 
-      line-height:1.1; 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #a855f7 100%); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-      font-weight: 800; 
-    } 
-    .hero p{ 
-      margin:0 0 24px; 
-      color: var(--muted); 
-      font-size: 1.2rem; 
-      line-height: 1.7; 
-    } 
-    .btns{ display:flex; gap:20px; flex-wrap:wrap; } 
-    .btn{ 
-      display:inline-block; 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
-      color:#fff; text-decoration:none; 
-      padding:16px 32px; border-radius:16px; font-weight:600; 
-      box-shadow: 0 8px 25px rgba(236,72,153,.3); 
-      transition: all 0.3s ease; 
-      border: none; 
-      font-size: 1.1rem; 
-    } 
-    .btn:hover{ 
-      transform: translateY(-3px) scale(1.05); 
-      box-shadow: 0 15px 35px rgba(236,72,153,.4); 
-    } 
-    .btn.outline{ 
-      background: transparent; 
-      color: var(--primary); 
-      border: 2px solid var(--primary); 
-      box-shadow: none; 
-    } 
-    .btn.outline:hover{ 
-      background: var(--primary); 
-      color: white; 
-    } 
-
-    /* ====== Características ====== */ 
-    .features{ 
-      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; 
-    } 
-    .feature-card{ 
-      background: var(--card); 
-      padding: 32px; 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      text-align: center; 
-      transition: all 0.3s ease; 
-      border: 1px solid #fbcfe8; 
-    } 
-    .feature-card:hover{ 
-      transform: translateY(-8px) scale(1.02); 
-      box-shadow: 0 20px 40px rgba(236,72,153,.2); 
-    } 
-    .feature-icon{ 
-      font-size: 3rem; 
-      margin-bottom: 20px; 
-      display: block; 
-    } 
-    .feature-card h3{ 
-      margin: 0 0 16px; 
-      color: var(--text); 
-      font-size: 1.4rem; 
-    } 
-    .feature-card p{ 
-      color: var(--muted); 
-      line-height: 1.6; 
-      margin: 0; 
-    } 
-
-    /* ====== Multimedia ====== */ 
-    .multimedia{ 
-      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
-    } 
-    .media-container{ 
-      background: var(--card); 
-      padding: 24px; 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      text-align: center; 
-      border: 1px solid #fbcfe8; 
-    } 
-    .media-container h3{ 
-      color: var(--text); 
-      margin-bottom: 16px; 
-      font-size: 1.3rem; 
-    } 
-    .media-container img{ 
-      width: 100%; 
-      border-radius: 16px; 
-      height: 280px; 
-      object-fit: cover; 
-      border: 3px solid #fbcfe8; 
-    } 
-    .media-container video{ 
-      width: 100%; 
-      border-radius: 16px; 
-      height: 280px; 
-      object-fit: cover; 
-      border: 3px solid #fbcfe8; 
-    } 
-
-    /* ====== Pie ====== */ 
-    footer{ 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
-      color: white; 
-      text-align:center; 
-      padding: 50px 24px; 
-      margin-top: 80px; 
-    } 
-    .social-links{ 
-      margin: 30px 0; 
-      display: flex; 
-      justify-content: center; 
-      gap: 16px; 
-      flex-wrap: wrap; 
-    } 
-    .social-links a{ 
-      color: white; 
-      text-decoration: none; 
-      padding: 12px 24px; 
-      border: 2px solid white; 
-      border-radius: 12px; 
-      transition: all 0.3s ease; 
-      font-weight: 500; 
-    } 
-    .social-links a:hover{ 
-      background: white; 
-      color: #ec4899; 
-      transform: translateY(-2px); 
-    } 
-
-    /* ====== Responsive ====== */ 
-    @media (max-width: 768px){ 
-      .hero{ 
-        grid-template-columns: 1fr; 
-        text-align: center; 
-        margin-top: 40px; 
-        gap: 30px; 
-      } 
-      .multimedia{ 
-        grid-template-columns: 1fr; 
-        gap: 30px; 
-      } 
-      .features{ 
-        grid-template-columns: 1fr; 
-        margin: 60px auto; 
-      } 
-      .links a{ 
-        margin-left: 12px; 
-        font-size: 0.9rem; 
-        padding: 8px 14px; 
-      } 
-      .btns{ 
-        justify-content: center; 
-        gap: 16px; 
-      } 
-      .btn{ 
-        padding: 14px 28px; 
-        font-size: 1rem; 
-      } 
-    } 
-  </style> 
-</head> 
-<body> 
-  <!-- NAV --> 
-  <nav> 
-    <div class="nav-inner"> 
-      <a class="brand" href="index.html">✨ StyleMirror</a> 
-      <div class="links"> 
-        <a href="index.html">Inicio</a> 
-        <a href="como-funciona.html">Cómo Funciona</a> 
-        <a href="contacto.html">Contacto</a> 
-      </div> 
-    </div> 
-  </nav> 
-
-  <!-- HERO --> 
-  <section class="hero"> 
-    <div> 
-      <h1>Tu Espejo Inteligente de Moda</h1> 
-      <p>StyleMirror revoluciona tu rutina matutina. Solo dile tu plan del día y te sugerirá el outfit perfecto, accesorios y peinado. ¡Nunca fue tan fácil estar fabuloso!</p> 
-      <div class="btns"> 
-        <a class="btn" href="como-funciona.html">Descubre Cómo Funciona</a> 
-        <a class="btn outline" href="contacto.html">Reserva una Demo</a> 
-      </div> 
-    </div> 
-    <div class="media-container"> 
-      <img src="https://images.unsplash.com/photo-1556159992-e189f6f4c0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="StyleMirror - Espejo inteligente moderno" /> 
-    </div> 
-  </section> 
-
-  <!-- CARACTERÍSTICAS --> 
-  <section class="features"> 
-    <div class="feature-card"> 
-      <div class="feature-icon">👗</div> 
-      <h3>Outfits Inteligentes</h3> 
-      <p>Describe tu día (reunión, cita, deporte) y recibe sugerencias de outfits perfectos para cada ocasión.</p> 
-    </div> 
-    <div class="feature-card"> 
-      <div class="feature-icon">💎</div> 
-      <h3>Accesorios que Marcan</h3> 
-      <p>Completa tu look con accesorios que realzan tu estilo personal y el evento del día.</p> 
-    </div> 
-    <div class="feature-card"> 
-      <div class="feature-icon">💇</div> 
-      <h3>Peinados Perfectos</h3> 
-      <p>Descubre peinados que se adaptan a tu tipo de rostro, cabello y actividades planificadas.</p> 
-    </div> 
-  </section> 
-
-  <!-- MULTIMEDIA --> 
-  <section class="multimedia"> 
-    <div class="media-container"> 
-      <h3>StyleMirror en Acción</h3> 
-      <video controls poster="https://images.unsplash.com/photo-1594736797933-d0d69c3bc2c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"> 
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4"> 
-        Tu navegador no soporta el video. 
-      </video> 
-      <p style="margin-top: 16px; color: var(--muted);">Mira cómo StyleMirror transforma la experiencia de vestirse</p> 
-    </div> 
-    <div class="media-container"> 
-      <h3>Probador Virtual</h3> 
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Probador virtual de StyleMirror" /> 
-      <p style="margin-top: 16px; color: var(--muted);">Prueba ropa que no tienes y descubre dónde comprarla</p> 
-    </div> 
-  </section> 
-
-  <footer> 
-    <p style="font-size: 1.2rem; margin-bottom: 10px;">✨ StyleMirror - Revolucionando tu rutina de moda ✨</p> 
-    <p style="opacity: 0.9;">El futuro de la moda personalizada está aquí</p> 
-    <div class="social-links"> 
-      <a href="https://instagram.com" target="_blank">📷 Instagram</a> 
-      <a href="https://pinterest.com" target="_blank">📌 Pinterest</a> 
-      <a href="https://tiktok.com" target="_blank">🎵 TikTok</a> 
-    </div> 
-    <p style="margin-top: 30px; opacity: 0.8;">© <span id="year"></span> StyleMirror. Todos los derechos reservados.</p> 
-  </footer> 
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script> 
-</body> 
-</html>
-<!DOCTYPE html> 
-<html lang="es"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <title>StyleMirror - Tu Espejo Inteligente de Moda</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-  <style> 
-    /* ====== Variables de color ROSA MODERNO ====== */ 
-    :root{ 
-      --bg: #fdf2f8; 
-      --text: #701a75; 
-      --muted: #a855f7; 
-      --primary: #ec4899; 
-      --secondary: #fbcfe8; 
-      --accent: #db2777; 
-      --card: #ffffff; 
-      --shadow: 0 10px 28px rgba(236,72,153,.15); 
-      --radius: 20px; 
-      --blue-accent: #60a5fa;
-    } 
-
-    /* ====== Reset mínimo ====== */ 
-    *{ box-sizing: border-box; } 
-    html,body{ margin:0; padding:0; } 
-    body{ 
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
-      color: var(--text); 
-      background: linear-gradient(180deg, #fce7f3 0%, var(--bg) 100%); 
-      line-height: 1.6; 
-      min-height: 100vh; 
-    } 
-
-    /* ====== Barra de navegación ====== */ 
-    nav{ 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
-      box-shadow: 0 4px 18px rgba(236,72,153,.25); 
-      position: sticky; top:0; z-index: 10; 
-    } 
-    .nav-inner{ 
-      max-width: 1200px; margin: 0 auto; padding: 16px 24px; 
-      display:flex; align-items:center; justify-content:space-between; gap:12px; 
-    } 
-    .brand{ 
-      color:#fff; text-decoration:none; font-weight:700; font-size:1.5rem; 
-      text-shadow: 0 2px 4px rgba(0,0,0,.1); 
-      display: flex; align-items: center; gap: 10px;
-    } 
-    .logo { 
-      width: 40px; height: 40px; background: white; border-radius: 50%; 
-      display: flex; align-items: center; justify-content: center; 
-      font-size: 1.5rem; border: 2px solid #fbcfe8;
-    } 
-    .links a{ 
-      color:#fff; text-decoration:none; margin-left:20px; padding:10px 18px; border-radius:12px; 
-      transition: all 0.3s ease; font-weight: 500; 
-    } 
-    .links a:hover{ background: rgba(255,255,255,.2); transform: translateY(-2px); } 
-
-    /* ====== Sección "hero" ====== */ 
-    .hero{ 
-      max-width: 1200px; margin: 60px auto 0; padding: 0 24px; 
-      display:grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items:center; 
-    } 
-    .hero h1{ 
-      margin:0 0 20px; 
-      font-size: clamp(36px, 4.5vw, 58px); 
-      line-height:1.1; 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, var(--blue-accent) 100%); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-      font-weight: 800; 
-    } 
-    .hero p{ 
-      margin:0 0 24px; 
-      color: var(--muted); 
-      font-size: 1.2rem; 
-      line-height: 1.7; 
-    } 
-    .btns{ display:flex; gap:20px; flex-wrap:wrap; } 
-    .btn{ 
-      display:inline-block; 
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); 
-      color:#fff; text-decoration:none; 
-      padding:16px 32px; border-radius:16px; font-weight:600; 
-      box-shadow: 0 8px 25px rgba(236,72,153,.3); 
-      transition: all 0.3s ease; 
-      border: none; 
-      font-size: 1.1rem; 
-    } 
-    .btn:hover{ 
-      transform: translateY(-3px) scale(1.05); 
-      box-shadow: 0 15px 35px rgba(236,72,153,.4); 
-    } 
-    .btn.blue{ 
-      background: linear-gradient(135deg, var(--blue-accent) 0%, #3b82f6 100%); 
-      box-shadow: 0 8px 25px rgba(96,165,250,.3); 
-    } 
-    .btn.blue:hover{ 
-      box-shadow: 0 15px 35px rgba(96,165,250,.4); 
-    }
-
-    /* ====== Personalización ====== */
-    .customization{ 
-      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
-    } 
-    .customization h2{ 
-      text-align: center; 
-      font-size: 2.5rem; 
-      margin-bottom: 50px; 
-      background: linear-gradient(135deg, #ec4899 0%, var(--blue-accent) 100%); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-    } 
-    .style-options{ 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 25px; 
-      margin-bottom: 40px; 
-    } 
-    .style-option{ 
-      background: var(--card); 
-      padding: 25px; 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      text-align: center; 
-      transition: all 0.3s ease; 
-      border: 2px solid transparent; 
-    } 
-    .style-option:hover{ 
-      transform: translateY(-5px); 
-      border-color: var(--primary); 
-    } 
-    .style-option.selected{ 
-      border-color: var(--primary); 
-      background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); 
-    } 
-    .style-icon{ 
-      font-size: 2.5rem; 
-      margin-bottom: 15px; 
-    } 
-    .color-options{ 
-      display: flex; 
-      justify-content: center; 
-      gap: 15px; 
-      margin: 20px 0; 
-    } 
-    .color-option{ 
-      width: 30px; 
-      height: 30px; 
-      border-radius: 50%; 
-      cursor: pointer; 
-      border: 3px solid transparent; 
-      transition: all 0.3s ease; 
-    } 
-    .color-option.selected{ 
-      border-color: var(--text); 
-      transform: scale(1.2); 
-    } 
-
-    /* ====== Cómo funciona ====== */ 
-    .how-it-works{ 
-      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
-    } 
-    .steps{ 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-      gap: 30px; 
-    } 
-    .step{ 
-      background: var(--card); 
-      padding: 30px; 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      text-align: center; 
-    } 
-    .step-number{ 
-      background: linear-gradient(135deg, #ec4899 0%, var(--blue-accent) 100%); 
-      color: white; 
-      width: 50px; 
-      height: 50px; 
-      border-radius: 50%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin: 0 auto 20px; 
-      font-size: 1.5rem; 
-      font-weight: bold; 
-    } 
-
-    /* ====== Para todos ====== */ 
-    .for-everyone{ 
-      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
-      text-align: center; 
-    } 
-    .genders{ 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 30px; 
-      margin-top: 40px; 
-    } 
-    .gender-card{ 
-      background: var(--card); 
-      padding: 30px; 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-    } 
-    .gender-icon{ 
-      font-size: 3rem; 
-      margin-bottom: 20px; 
-    } 
-
-    /* ====== Pedir ahora ====== */ 
-    .order-now{ 
-      max-width: 1200px; margin: 80px auto; padding: 0 24px; 
-      text-align: center; 
-      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); 
-      padding: 50px 30px; 
-      border-radius: var(--radius); 
-    } 
-    .order-now h2{ 
-      color: var(--text); 
-      margin-bottom: 30px; 
-    } 
-    .price{ 
-      font-size: 3rem; 
-      font-weight: bold; 
-      color: var(--primary); 
-      margin: 20px 0; 
-    } 
-
-    /* ====== Responsive ====== */ 
-    @media (max-width: 768px){ 
-      .hero{ grid-template-columns: 1fr; text-align: center; margin-top: 40px; gap: 30px; } 
-      .style-options{ grid-template-columns: 1fr; } 
-      .steps{ grid-template-columns: 1fr; } 
-      .genders{ grid-template-columns: 1fr; } 
-      .links a{ margin-left: 12px; font-size: 0.9rem; padding: 8px 14px; } 
-      .btns{ justify-content: center; gap: 16px; } 
-      .btn{ padding: 14px 28px; font-size: 1rem; } 
-    } 
-  </style> 
-</head> 
-<body> 
-  <!-- NAV --> 
-  <nav> 
-    <div class="nav-inner"> 
-      <a class="brand" href="index.html"> 
-        <div class="logo">👗</div> 
-        StyleMirror 
-      </a> 
-      <div class="links"> 
-        <a href="#personalizar">Personalizar</a> 
-        <a href="#como-funciona">Cómo Funciona</a> 
-        <a href="#para-todos">Para Todos</a> 
-        <a href="#pedir-ahora">Pedir Ahora</a> 
-      </div> 
-    </div> 
-  </nav> 
-
-  <!-- HERO --> 
-  <section class="hero"> 
-    <div> 
-      <h1>StyleMirror: Moda Inteligente para Tu Vida</h1> 
-      <p>El primer espejo que entiende tu estilo y tu día. Perfecto para mujeres y hombres que quieren lucir increíbles en cada ocasión.</p> 
-      <div class="btns"> 
-        <a class="btn" href="#personalizar">Personalizar Mi Espejo</a> 
-        <a class="btn blue" href="#como-funciona">Ver Demo</a> 
-      </div> 
-    </div> 
-    <div> 
-      <img src="https://images.unsplash.com/photo-1556159992-e189f6f4c0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="StyleMirror" style="width:100%; border-radius:20px;" /> 
-    </div> 
-  </section> 
-
-  <!-- PERSONALIZACIÓN --> 
-  <section id="personalizar" class="customization"> 
-    <h2>Personaliza Tu StyleMirror</h2> 
-    <div class="style-options"> 
-      <div class="style-option selected"> 
-        <div class="style-icon">👑</div> 
-        <h3>Estilo Elegante</h3> 
-        <p>Para looks sofisticados y formales</p> 
-        <div class="color-options"> 
-          <div class="color-option selected" style="background: #ec4899;"></div> 
-          <div class="color-option" style="background: #701a75;"></div> 
-          <div class="color-option" style="background: #000000;"></div> 
-        </div> 
-      </div> 
-      <div class="style-option"> 
-        <div class="style-icon">⚡</div> 
-        <h3>Estilo Casual</h3> 
-        <p>Looks cómodos y modernos para el día a día</p> 
-        <div class="color-options"> 
-          <div class="color-option" style="background: #60a5fa;"></div> 
-          <div class="color-option selected" style="background: #3b82f6;"></div> 
-          <div class="color-option" style="background: #1e40af;"></div> 
-        </div> 
-      </div> 
-      <div class="style-option"> 
-        <div class="style-icon">🎯</div> 
-        <h3>Estilo Deportivo</h3> 
-        <p>Perfecto para entrenamientos y actividades</p> 
-        <div class="color-options"> 
-          <div class="color-option" style="background: #10b981;"></div> 
-          <div class="color-option" style="background: #059669;"></div> 
-          <div class="color-option selected" style="background: #047857;"></div> 
-        </div> 
-      </div> 
-    </div> 
-    <div style="text-align: center;"> 
-      <button class="btn" onclick="guardarPersonalizacion()">Guardar Mi Estilo</button> 
-    </div> 
-  </section> 
-
-  <!-- CÓMO FUNCIONA --> 
-  <section id="como-funciona" class="how-it-works"> 
-    <h2 style="text-align: center; color: var(--text);">Cómo Funciona StyleMirror</h2> 
-    <div class="steps"> 
-      <div class="step"> 
-        <div class="step-number">1</div> 
-        <h3>Cuéntale Tu Día</h3> 
-        <p>"Hola StyleMirror, hoy tengo reunión de trabajo, cita para comer y fiesta por la noche"</p> 
-      </div> 
-      <div class="step"> 
-        <div class="step-number">2</div> 
-        <h3>Recibe Sugerencias</h3> 
-        <p>El espejo analiza tu guardarropa y te muestra 3 outfits perfectos para cada evento del día</p> 
-      </div> 
-      <div class="step"> 
-        <div class="step-number">3</div> 
-        <h3>Prueba y Compra</h3> 
-        <p>Usa el probador virtual para prendas que no tienes y compra directamente con un solo toque</p> 
-      </div> 
-    </div> 
-  </section> 
-
-  <!-- PARA TODOS --> 
-  <section id="para-todos" class="for-everyone"> 
-    <h2 style="color: var(--text);">Diseñado para Mujeres y Hombres</h2> 
-    <p style="color: var(--muted); font-size: 1.2rem;">StyleMirror se adapta a todos los estilos y preferencias</p> 
-    <div class="genders"> 
-      <div class="gender-card"> 
-        <div class="gender-icon">👩</div> 
-        <h3>Para Ella</h3> 
-        <p>Outfits profesionales, casuales, de fiesta. Accesorios, maquillaje y peinados perfectos para cada ocasión.</p> 
-      </div> 
-      <div class="gender-card"> 
-        <div class="gender-icon">👨</div> 
-        <h3>Para Él</h3> 
-        <p>Looks ejecutivos, casuales, deportivos. Combinaciones de ropa, calzado y accesorios masculinos.</p> 
-      </div> 
-      <div class="gender-card"> 
-        <div class="gender-icon">🚀</div> 
-        <h3>Estilo Único</h3> 
-        <p>Personalización total para expresar tu identidad única sin límites de género.</p> 
-      </div> 
-    </div> 
-  </section> 
-
-  <!-- PEDIR AHORA --> 
-  <section id="pedir-ahora" class="order-now"> 
-    <h2>¡Consigue Tu StyleMirror Hoy!</h2> 
-    <p style="font-size: 1.3rem; color: var(--text);">Transforma tu rutina matutina para siempre</p> 
-    <div class="price">€299</div> 
-    <p style="color: var(--muted); margin-bottom: 30px;">+ Envío gratuito • Garantía de 2 años</p> 
-    <div class="btns"> 
-      <a class="btn" href="pedido.html">Personalizar y Comprar</a> 
-      <a class="btn blue" href="contacto.html">Contactar para Empresas</a> 
-    </div> 
-  </section> 
-
-  <script> 
-    function guardarPersonalizacion() { 
-      alert('¡Estilo personalizado guardado! Será aplicado a tu StyleMirror.'); 
-    } 
-
-    // Selección de colores 
-    document.querySelectorAll('.color-option').forEach(option => { 
-      option.addEventListener('click', function() { 
-        // Remover selección anterior en el mismo grupo 
-        this.parentElement.querySelectorAll('.color-option').forEach(opt => { 
-          opt.classList.remove('selected'); 
-        }); 
-        // Seleccionar nuevo color 
-        this.classList.add('selected'); 
-      }); 
-    }); 
-
-    // Selección de estilo 
-    document.querySelectorAll('.style-option').forEach(option => { 
-      option.addEventListener('click', function() { 
-        // Remover selección anterior 
-        document.querySelectorAll('.style-option').forEach(opt => { 
-          opt.classList.remove('selected'); 
-        }); 
-        // Seleccionar nuevo estilo 
-        this.classList.add('selected'); 
-      }); 
-    }); 
-  </script> 
-</body> 
-</html>
-
-<!DOCTYPE html> 
-<html lang="es"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <title>StyleMirror - Espejo Inteligente de Moda</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-  <style> 
-    /* ====== Variables de color ELEGANTE ====== */ 
-    :root{ 
-      --bg: #fafafa; 
-      --text: #2d3748; 
-      --muted: #718096; 
-      --primary: #e53e3e; 
-      --secondary: #fed7d7; 
-      --accent: #c53030; 
-      --gold: #d4af37; 
-      --silver: #c0c0c0; 
-      --card: #ffffff; 
-      --shadow: 0 20px 40px rgba(0,0,0,.08); 
-      --radius: 12px; 
-    } 
-
-    /* ====== Reset y tipografía elegante ====== */ 
-    *{ box-sizing: border-box; } 
-    html,body{ margin:0; padding:0; } 
-    body{ 
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; 
-      color: var(--text); 
-      background: var(--bg); 
-      line-height: 1.7; 
-      min-height: 100vh; 
-      font-weight: 300; 
-    } 
-
-    /* ====== Navegación minimalista ====== */ 
-    nav{ 
-      background: rgba(255,255,255,.95); 
-      backdrop-filter: blur(20px); 
-      border-bottom: 1px solid rgba(0,0,0,.08); 
-      position: fixed; top:0; width:100%; z-index: 1000; 
-    } 
-    .nav-inner{ 
-      max-width: 1200px; margin: 0 auto; padding: 20px 40px; 
-      display:flex; align-items:center; justify-content:space-between; 
-    } 
-    .brand{ 
-      color: var(--text); text-decoration:none; font-weight: 600; font-size: 1.4rem; 
-      display: flex; align-items: center; gap: 12px; 
-    } 
-    .logo { 
-      width: 45px; height: 45px; 
-      background: linear-gradient(135deg, var(--gold) 0%, var(--silver) 100%); 
-      border-radius: 8px; 
-      display: flex; align-items: center; justify-content: center; 
-      font-weight: 300; color: white; 
-      box-shadow: 0 4px 12px rgba(212,175,55,.3); 
-    } 
-    .links a{ 
-      color: var(--text); text-decoration:none; margin-left: 32px; 
-      padding: 8px 0; font-weight: 400; 
-      position: relative; 
-      transition: all 0.3s ease; 
-    } 
-    .links a:after{ 
-      content: ''; position: absolute; bottom: 0; left: 0; 
-      width: 0; height: 2px; background: var(--primary); 
-      transition: width 0.3s ease; 
-    } 
-    .links a:hover:after{ width: 100%; } 
-    .links a:hover{ color: var(--primary); } 
-
-    /* ====== Hero elegante ====== */ 
-    .hero{ 
-      max-width: 1200px; margin: 120px auto 0; padding: 0 40px; 
-      display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items:center; 
-      min-height: 80vh; 
-    } 
-    .hero-content h1{ 
-      font-size: 3.5rem; font-weight: 300; line-height: 1.1; 
-      margin: 0 0 24px 0; 
-      color: var(--text); 
-    } 
-    .hero-content p{ 
-      font-size: 1.2rem; color: var(--muted); line-height: 1.8; 
-      margin: 0 0 40px 0; 
-    } 
-    .hero-image{ 
-      position: relative; 
-    } 
-    .hero-image img{ 
-      width: 100%; border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-    } 
-    .lights-effect{ 
-      position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; 
-      background: radial-gradient(circle at 50% 50%, rgba(229,62,62,.1) 0%, transparent 70%); 
-      border-radius: var(--radius); z-index: -1; 
-      animation: pulse 4s ease-in-out infinite; 
-    } 
-    @keyframes pulse { 
-      0%, 100% { opacity: 0.3; } 
-      50% { opacity: 0.6; } 
-    } 
-
-    /* ====== Botones sofisticados ====== */ 
-    .btns{ display:flex; gap: 20px; flex-wrap:wrap; } 
-    .btn{ 
-      display:inline-block; 
-      background: var(--primary); color:#fff; text-decoration:none; 
-      padding: 16px 36px; border-radius: 8px; font-weight: 500; 
-      transition: all 0.3s ease; border: none; font-size: 1rem; 
-      letter-spacing: 0.5px; 
-    } 
-    .btn:hover{ 
-      transform: translateY(-2px); 
-      box-shadow: 0 10px 25px rgba(229,62,62,.3); 
-    } 
-    .btn.outline{ 
-      background: transparent; color: var(--text); 
-      border: 1px solid var(--muted); 
-    } 
-    .btn.outline:hover{ 
-      border-color: var(--primary); color: var(--primary); 
-      box-shadow: 0 10px 25px rgba(0,0,0,.1); 
-    } 
-
-    /* ====== Secciones minimalistas ====== */ 
-    .section{ 
-      max-width: 1200px; margin: 120px auto; padding: 0 40px; 
-    } 
-    .section-header{ 
-      text-align: center; margin-bottom: 80px; 
-    } 
-    .section-header h2{ 
-      font-size: 2.5rem; font-weight: 300; margin: 0 0 16px 0; 
-      color: var(--text); 
-    } 
-    .section-header p{ 
-      font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto; 
-    } 
-
-    /* ====== Grid de características ====== */ 
-    .features-grid{ 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-      gap: 40px; 
-    } 
-    .feature-card{ 
-      background: var(--card); padding: 40px; border-radius: var(--radius); 
-      box-shadow: var(--shadow); transition: all 0.3s ease; 
-    } 
-    .feature-card:hover{ 
-      transform: translateY(-5px); 
-      box-shadow: 0 25px 50px rgba(0,0,0,.12); 
-    } 
-    .feature-icon{ 
-      font-size: 2rem; margin-bottom: 24px; color: var(--primary); 
-    } 
-    .feature-card h3{ 
-      font-size: 1.4rem; font-weight: 500; margin: 0 0 16px 0; 
-    } 
-    .feature-card p{ 
-      color: var(--muted); line-height: 1.7; margin: 0; 
-    } 
-
-    /* ====== Footer elegante ====== */ 
-    footer{ 
-      background: var(--text); color: white; 
-      padding: 80px 40px 40px; margin-top: 120px; 
-    } 
-    .footer-content{ 
-      max-width: 1200px; margin: 0 auto; 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 60px; 
-    } 
-    .footer-bottom{ 
-      max-width: 1200px; margin: 60px auto 0; 
-      padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1); 
-      text-align: center; color: rgba(255,255,255,.6); 
-    } 
-
-    /* ====== Responsive ====== */ 
-    @media (max-width: 968px){ 
-      .hero{ grid-template-columns: 1fr; gap: 60px; text-align: center; } 
-      .hero-content h1{ font-size: 2.8rem; } 
-      .features-grid{ grid-template-columns: 1fr; } 
-      .nav-inner{ padding: 20px; } 
-      .links a{ margin-left: 20px; } 
-      .section{ margin: 80px auto; padding: 0 20px; } 
-    } 
-    @media (max-width: 768px){ 
-      .links{ display: none; } /* Para móviles, considerar menú hamburguesa */ 
-      .hero-content h1{ font-size: 2.2rem; } 
-      .btns{ justify-content: center; } 
-    } 
-  </style> 
-</head> 
-<body> 
-  <!-- NAV --> 
-  <nav> 
-    <div class="nav-inner"> 
-      <a class="brand" href="index.html"> 
-        <div class="logo">SM</div> 
-        StyleMirror 
-      </a> 
-      <div class="links"> 
-        <a href="personalizar.html">Personalizar</a> 
-        <a href="como-funciona.html">Cómo Funciona</a> 
-        <a href="comprar.html">Comprar</a> 
-        <a href="contacto.html">Contacto</a> 
-      </div> 
-    </div> 
-  </nav> 
-
-  <!-- HERO ELEGANTE --> 
-  <section class="hero"> 
-    <div class="hero-content"> 
-      <h1>El espejo que transforma tu estilo</h1> 
-      <p>StyleMirror combina tecnología de inteligencia artificial con un diseño sofisticado. Un espejo de cuerpo completo con iluminación LED profesional que analiza tu guardarropa y sugiere outfits perfectos para cada ocasión.</p> 
-      <div class="btns"> 
-        <a class="btn" href="comprar.html">Descubrir Colección</a> 
-        <a class="btn outline" href="como-funciona.html">Ver Tecnología</a> 
-      </div> 
-    </div> 
-    <div class="hero-image"> 
-      <div class="lights-effect"></div> 
-      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="StyleMirror - Espejo inteligente con luces LED" /> 
-    </div> 
-  </section> 
-
-  <!-- CARACTERÍSTICAS PRINCIPALES --> 
-  <section class="section"> 
-    <div class="section-header"> 
-      <h2>Tecnología que entiende de moda</h2> 
-      <p>StyleMirror redefine tu experiencia de vestirte con innovación y elegancia</p> 
-    </div> 
-    <div class="features-grid"> 
-      <div class="feature-card"> 
-        <div class="feature-icon">🤖</div> 
-        <h3>Asistente de IA Personal</h3> 
-        <p>Nuestra inteligencia artificial analiza tu estilo, ocasiones y preferencias para crear combinaciones perfectas.</p> 
-      </div> 
-      <div class="feature-card"> 
-        <div class="feature-icon">💡</div> 
-        <h3>Iluminación Profesional</h3> 
-        <p>Luces LED ajustables que simulan diferentes condiciones de luz para asegurar que tu outfit se vea perfecto en cualquier entorno.</p> 
-      </div> 
-      <div class="feature-card"> 
-        <div class="feature-icon">🛍️</div> 
-        <h3>Probador Virtual</h3> 
-        <p>Prueba prendas de tus tiendas favoritas sin salir de casa. El espejo te muestra cómo te quedarían y dónde comprarlas.</p> 
-      </div> 
-    </div> 
-  </section> 
-
-  <!-- COLECCIONES --> 
-  <section class="section"> 
-    <div class="section-header"> 
-      <h2>Modelos Exclusivos</h2> 
-      <p>Diseñados para integrarse perfectamente en tu espacio</p> 
-    </div> 
-    <div class="features-grid"> 
-      <div class="feature-card"> 
-        <div class="feature-icon">✨</div> 
-        <h3>StyleMirror Pro</h3> 
-        <p>Marco en oro rosa con cristal inteligente de última generación. Incluye asistente de voz avanzado.</p> 
-        <a href="comprar.html" class="btn" style="margin-top: 20px; padding: 12px 24px;">Desde €599</a> 
-      </div> 
-      <div class="feature-card"> 
-        <div class="feature-icon">⚡</div> 
-        <h3>StyleMirror Air</h3> 
-        <p>Diseño minimalista con marco plateado. Perfecto para espacios modernos y contemporáneos.</p> 
-        <a href="comprar.html" class="btn" style="margin-top: 20px; padding: 12px 24px;">Desde €399</a> 
-      </div> 
-    </div> 
-  </section> 
-
-  <footer> 
-    <div class="footer-content"> 
-      <div> 
-        <div class="brand" style="color: white; margin-bottom: 20px;"> 
-          <div class="logo">SM</div> 
-          StyleMirror 
-        </div> 
-        <p style="color: rgba(255,255,255,.7);">Tecnología y elegancia para tu rutina de moda.</p> 
-      </div> 
-      <div> 
-        <h4 style="color: white; margin-bottom: 20px;">Explorar</h4> 
-        <a href="personalizar.html" style="color: rgba(255,255,255,.7); display: block; margin-bottom: 10px; text-decoration: none;">Personalizar</a> 
-        <a href="como-funciona.html" style="color: rgba(255,255,255,.7); display: block; margin-bottom: 10px; text-decoration: none;">Cómo Funciona</a> 
-        <a href="comprar.html" style="color: rgba(255,255,255,.7); display: block; margin-bottom: 10px; text-decoration: none;">Comprar</a> 
-      </div> 
-      <div> 
-        <h4 style="color: white; margin-bottom: 20px;">Contacto</h4> 
-        <p style="color: rgba(255,255,255,.7); margin: 0 0 10px 0;">info@stylemirror.com</p> 
-        <p style="color: rgba(255,255,255,.7); margin: 0;">+34 91 123 45 67</p> 
-      </div> 
-    </div> 
-    <div class="footer-bottom"> 
-      <p>&copy; 2024 StyleMirror. Todos los derechos reservados.</p> 
-    </div> 
-  </footer> 
-</body> 
-</html> 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Personalizar - StyleMirror</title>
-    <!-- Mismos estilos elegantes -->
-</head>
-<body>
-    <nav><!-- Misma navegación --></nav>
-    
-    <section class="section">
-        <div class="section-header">
-            <h2>Personaliza tu StyleMirror</h2>
-            <p>Elige cada detalle para crear el espejo perfecto para tu espacio</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>🌙 Forma del Marco</h3>
-                <div style="margin: 20px 0;">
-                    <button class="btn outline" style="margin: 5px;">Rectangular</button>
-                    <button class="btn" style="margin: 5px;">Ovalado</button>
-                    <button class="btn outline" style="margin: 5px;">Personalizada</button>
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <h3>🎨 Color del Marco</h3>
-                <div style="display: flex; gap: 15px; margin: 20px 0;">
-                    <div style="width: 40px; height: 40px; background: #d4af37; border-radius: 50%; cursor: pointer;"></div>
-                    <div style="width: 40px; height: 40px; background: #c0c0c0; border-radius: 50%; cursor: pointer;"></div>
-                    <div style="width: 40px; height: 40px; background: #2d3748; border-radius: 50%; cursor: pointer;"></div>
-                    <div style="width: 40px; height: 40px; background: #e53e3e; border-radius: 50%; cursor: pointer;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-</html> 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Cómo Funciona - StyleMirror</title>
-    <!-- Mismos estilos elegantes -->
-</head>
-<body>
-    <nav><!-- Misma navegación --></nav>
-    
-    <section class="section">
-        <div class="section-header">
-            <h2>Guía de Uso StyleMirror</h2>
-            <p>Aprende a sacar el máximo partido a tu espejo inteligente</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>1. Configuración Inicial</h3>
-                <p>Conecta tu StyleMirror a WiFi y descarga la app companion. El proceso toma menos de 5 minutos.</p>
-            </div>
-            <div class="feature-card">
-                <h3>2. Digitaliza tu Guardarropa</h3>
-                <p>Usa tu smartphone para escanear todas tus prendas. La IA aprenderá tu estilo en 24 horas.</p>
-            </div>
-            <div class="feature-card">
-                <h3>3. Programa tu Día</h3>
-                <p>"StyleMirror, hoy tengo reunión a las 10, almuerzo de trabajo a las 14 y cena a las 21"</p>
-            </div>
-        </div>
-    </section>
-</body>
-</html> 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Comprar - StyleMirror</title>
-    <!-- Mismos estilos elegantes -->
-</head>
-<body>
-    <nav><!-- Misma navegación --></nav>
-    
-    <section class="section">
-        <div class="section-header">
-            <h2>Selecciona tu StyleMirror</h2>
-            <p>Elige el modelo que mejor se adapte a tus necesidades</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>StyleMirror Pro</h3>
-                <p>€599 - Envío gratuito</p>
-                <ul style="color: var(--muted); margin: 20px 0;">
-                    <li>Marco en oro rosa 18k</li>
-                    <li>Asistente de voz premium</li>
-                    <li>Iluminación LED profesional</li>
-                </ul>
-                <a class="btn" href="pedido.html?modelo=pro">Seleccionar</a>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleMirror - Espejos Inteligentes de Lujo</title>
+    <title>StyleMirror - Espejos de Lujo Exclusivos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* ====== VARIABLES DE LUJO ====== */
+        /* ====== VARIABLES DE LUJO EXTREMO ====== */
         :root {
-            --bg: #0a0a0a;
-            --text: #e8e8e8;
-            --muted: #a0a0a0;
+            --bg: #000000;
+            --text: #ffffff;
             --gold: #d4af37;
             --gold-light: #f4e4b4;
+            --gold-dark: #b8944c;
             --platinum: #e5e4e2;
-            --rose-gold: #b76e79;
+            --silver: #c0c0c0;
+            --crystal: #d4d4d4;
             --bronze: #cd7f32;
-            --crystal: #a7d8e8;
-            --primary: var(--gold);
-            --card-bg: #1a1a1a;
-            --card-border: #333;
-            --shadow: 0 25px 50px rgba(0,0,0,0.5);
-            --radius: 16px;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --card-border: rgba(212, 175, 55, 0.4);
+            --shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            --radius: 12px;
+            --glow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
 
-        /* ====== RESET ELEGANTE ====== */
+        /* ====== RESET PREMIUM ====== */
         * { 
-            box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
+            box-sizing: border-box; 
         }
         
-        html, body { 
-            background: var(--bg); 
-            color: var(--text); 
+        html, body {
+            background: var(--bg);
+            color: var(--text);
             font-family: 'Playfair Display', 'Times New Roman', serif;
-            line-height: 1.7;
-            font-weight: 300;
+            line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
+            font-weight: 300;
         }
 
-        /* ====== NAVEGACIÓN DE LUJO ====== */
+        /* ====== FONDO DE LUJO ====== */
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(205, 127, 50, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            z-index: -1;
+        }
+
+        /* ====== NAVEGACIÓN DE ALTA GAMA ====== */
         .luxury-nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--gold);
             z-index: 1000;
-            padding: 20px 0;
+            padding: 25px 0;
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .luxury-logo {
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 400;
             color: var(--gold);
-            letter-spacing: 3px;
             text-decoration: none;
-            position: relative;
-        }
-
-        .luxury-logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .nav-links {
             display: flex;
-            gap: 50px;
+            gap: 60px;
         }
 
         .nav-links a {
-            color: var(--text);
+            color: var(--silver);
             text-decoration: none;
             font-size: 0.9rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: all 0.3s ease;
+            padding: 12px 0;
             position: relative;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 1px;
@@ -1253,16 +119,12 @@
             width: 100%;
         }
 
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* ====== HERO SECTION ====== */
+        /* ====== HERO SECTION IMPACTANTE ====== */
         .luxury-hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 40px 80px;
+            padding: 150px 50px 80px;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -1270,7 +132,21 @@
 
         .hero-content {
             flex: 1;
-            padding-right: 60px;
+            padding-right: 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--bronze));
+            color: var(--bg);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid var(--gold);
         }
 
         .hero-title {
@@ -1278,3338 +154,352 @@
             font-weight: 300;
             line-height: 1.1;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--platinum) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
+            color: var(--gold);
+            letter-spacing: 1px;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--muted);
+            font-size: 1.4rem;
+            color: var(--platinum);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--crystal);
             margin-bottom: 50px;
             line-height: 1.8;
-            font-weight: 300;
             max-width: 600px;
+        }
+
+        /* ====== BOTONES DE LUJO PERSUASIVOS ====== */
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .luxury-btn {
+            padding: 18px 40px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 400;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .luxury-btn:hover::before {
+            left: 100%;
+        }
+
+        .luxury-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        .luxury-btn.primary {
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 500;
+        }
+
+        .luxury-btn.primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
         }
 
         .hero-visual {
             flex: 1;
             position: relative;
             height: 600px;
-            background: linear-gradient(135deg, var(--card-bg) 0%, #2a2a2a 100%);
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
             border-radius: var(--radius);
-            border: 1px solid var(--card-border);
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: var(--shadow);
         }
 
-        .mirror-placeholder {
+        .mirror-display {
             width: 300px;
             height: 500px;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            border: 2px solid var(--gold);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 3px solid var(--gold);
             border-radius: 20px;
             position: relative;
             overflow: hidden;
         }
 
-        .mirror-placeholder::before {
+        .mirror-display::before {
             content: '';
             position: absolute;
             top: 10px;
             left: 10px;
             right: 10px;
             bottom: 10px;
-            background: linear-gradient(135deg, transparent 0%, rgba(212,175,55,0.1) 100%);
-            border: 1px solid rgba(212,175,55,0.3);
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
         }
 
-        /* ====== BOTONES DE LUJO ====== */
-        .luxury-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .luxury-btn {
-            padding: 18px 40px;
-            border: 1px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .luxury-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .luxury-btn:hover::before {
-            left: 100%;
-        }
-
-        .luxury-btn:hover {
-            background: rgba(212,175,55,0.1);
-        }
-
-        .luxury-btn.primary {
-            background: var(--gold);
-            color: var(--bg);
-        }
-
-        .luxury-btn.primary:hover {
-            background: var(--gold-light);
-            border-color: var(--gold-light);
-        }
-
-        /* ====== MODELOS DE ESPEJOS ====== */
-        .models-section {
-            padding: 120px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 80px;
-            font-weight: 300;
-            color: var(--gold);
-            letter-spacing: 2px;
-        }
-
-        .models-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .model-card {
+        /* ====== BENEFICIOS PERSUASIVOS ====== */
+        .benefits-section {
+            padding: 120px 50px;
             background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius);
-            padding: 40px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .model-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--rose-gold), var(--platinum));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .model-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .model-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .model-name {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--gold);
-            font-weight: 400;
-        }
-
-        .model-price {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--platinum);
-            font-weight: 300;
-        }
-
-        .model-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .model-features li {
-            padding: 8px 0;
-            color: var(--muted);
+            border-top: 1px solid var(--card-border);
             border-bottom: 1px solid var(--card-border);
         }
 
-        .model-features li:last-child {
-            border-bottom: none;
-        }
-
-        /* ====== PERSONALIZACIÓN AVANZADA ====== */
-        .customization-section {
-            padding: 120px 40px;
-            background: var(--card-bg);
-            margin: 80px 0;
-        }
-
-        .customization-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .custom-option {
-            background: var(--bg);
-            padding: 30px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-        }
-
-        .option-title {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-            font-weight: 400;
-        }
-
-        .color-options {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .color-option {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .color-option.selected {
-            border-color: var(--gold);
-            transform: scale(1.1);
-        }
-
-        .text-input {
-            width: 100%;
-            background: var(--bg);
-            border: 1px solid var(--card-border);
-            color: var(--text);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .text-input:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .light-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .light-option {
-            padding: 12px;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .light-option.selected {
-            border-color: var(--gold);
-            background: rgba(212,175,55,0.1);
-        }
-
-        .finish-options {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .finish-option {
-            padding: 12px 20px;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex: 1;
-            text-align: center;
-            min-width: 120px;
-        }
-
-        .finish-option.selected {
-            border-color: var(--gold);
-            background: rgba(212,175,55,0.1);
-        }
-
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 1024px) {
-            .luxury-hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 100px 20px 60px;
-            }
-
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 60px;
-            }
-
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .models-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .nav-container {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .luxury-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .luxury-btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- NAVEGACIÓN DE LUJO -->
-    <nav class="luxury-nav">
-        <div class="nav-container">
-            <a href="#" class="luxury-logo">STYLEMIRROR</a>
-            <div class="nav-links">
-                <a href="#modelos">Modelos</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#tecnologia">Tecnología</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="luxury-hero">
-        <div class="hero-content">
-            <h1 class="hero-title">El Arte de la Elegancia Digital</h1>
-            <p class="hero-subtitle">
-                StyleMirror redefine el lujo en la era digital. Espejos inteligentes fabricados 
-                con materiales exquisitos y tecnología de vanguardia, creados para quienes 
-                aprecian el detalle y la excelencia.
-            </p>
-            <div class="luxury-buttons">
-                <a href="#modelos" class="luxury-btn primary">Descubrir Colección</a>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="mirror-placeholder"></div>
-        </div>
-    </section>
-
-    <!-- MODELOS DE ESPEJOS -->
-    <section id="modelos" class="models-section">
-        <h2 class="section-title">Colección Exclusiva</h2>
-        <div class="models-grid">
-            <div class="model-card">
-                <h3 class="model-name">Heritage Gold</h3>
-                <div class="model-price">€8,500</div>
-                <ul class="model-features">
-                    <li>Marco en oro 18k macizo</li>
-                    <li>Cristal inteligente de triple capa</li>
-                    <li>Iluminación diamante con 16.000 configuraciones</li>
-                    <li>Asistente de voz con reconocimiento de materiales</li>
-                    <li>Acabado con incrustaciones de cristal Swarovski</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-
-            <div class="model-card">
-                <h3 class="model-name">Platinum Vision</h3>
-                <div class="model-price">€6,200</div>
-                <ul class="model-features">
-                    <li>Marco en platino 950</li>
-                    <li>Pantalla OLED táctil de 4K</li>
-                    <li>Sistema de iluminación profesional studio-grade</li>
-                    <li>Análisis de tejidos y materiales premium</li>
-                    <li>Integración con sistemas de domótica luxury</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-
-            <div class="model-card">
-                <h3 class="model-name">Rose Gold Elegance</h3>
-                <div class="model-price">€5,800</div>
-                <ul class="model-features">
-                    <li>Marco en oro rosa 14k</li>
-                    <li>Tecnología de reconocimiento facial 3D</li>
-                    <li>Iluminación ambiental adaptativa</li>
-                    <li>Sistema de recomendación con IA exclusiva</li>
-                    <li>Acabado satinado con detalles brillantes</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-
-            <div class="model-card">
-                <h3 class="model-name">Black Diamond</h3>
-                <div class="model-price">€7,900</div>
-                <ul class="model-features">
-                    <li>Marco en titano negro con diamantes incrustados</li>
-                    <li>Cristal de zafiro anti-reflejos</li>
-                    <li>Sistema de iluminación con fibra óptica</li>
-                    <li>Procesador neural dedicado</li>
-                    <li>Superficie nano-revestida anti-huellas</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PERSONALIZACIÓN AVANZADA -->
-    <section id="personalizar" class="customization-section">
-        <h2 class="section-title">Personalización Ilimitada</h2>
-        <div class="customization-grid">
-            <div class="custom-option">
-                <h3 class="option-title">Acabado del Marco</h3>
-                <div class="color-options">
-                    <div class="color-option selected" style="background: #d4af37;" title="Oro 18k"></div>
-                    <div class="color-option" style="background: #e5e4e2;" title="Platino"></div>
-                    <div class="color-option" style="background: #b76e79;" title="Oro Rosa"></div>
-                    <div class="color-option" style="background: #000000;" title="Titano Negro"></div>
-                    <div class="color-option" style="background: #cd7f32;" title="Bronce"></div>
-                    <div class="color-option" style="background: #a7d8e8;" title="Cristal Azul"></div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Inscripción Personalizada</h3>
-                <input type="text" class="text-input" placeholder="Nombre o iniciales" maxlength="20">
-                <input type="text" class="text-input" placeholder="Frase personalizada" maxlength="40">
-                <select class="text-input">
-                    <option>Tipografía Clásica</option>
-                    <option>Tipografía Moderna</option>
-                    <option>Tipografía Script</option>
-                    <option>Tipografía Serif</option>
-                </select>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Sistema de Iluminación</h3>
-                <div class="light-options">
-                    <div class="light-option selected">Luz Natural</div>
-                    <div class="light-option">Luz de Estudio</div>
-                    <div class="light-option">Luz Nocturna</div>
-                    <div class="light-option">Luz Cálida</div>
-                    <div class="light-option">Luz Fría</div>
-                    <div class="light-option">RGB Personal</div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Acabado de Superficie</h3>
-                <div class="finish-options">
-                    <div class="finish-option selected">Brillante</div>
-                    <div class="finish-option">Satinado</div>
-                    <div class="finish-option">Mate</div>
-                    <div class="finish-option">Texturizado</div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Elementos Decorativos</h3>
-                <div class="finish-options">
-                    <div class="finish-option">Cristal Swarovski</div>
-                    <div class="finish-option selected">Sin Adornos</div>
-                    <div class="finish-option">Filigrana Oro</div>
-                    <div class="finish-option">Incrustaciones</div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Tecnología Adicional</h3>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <label style="display: flex; align-items: center; gap: 10px;">
-                        <input type="checkbox" checked> Reconocimiento Vocal Avanzado
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 10px;">
-                        <input type="checkbox"> Control por Gestos
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 10px;">
-                        <input type="checkbox" checked> Análisis de Tejidos
-                    </label>
-                    <label style="display: flex; align-items: center; gap: 10px;">
-                        <input type="checkbox"> Realidad Aumentada
-                    </label>
-                </div>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 60px;">
-            <a href="#contacto" class="luxury-btn primary" style="padding: 20px 60px; font-size: 1.1rem;">
-                Solicitar Presupuesto Personalizado
-            </a>
-        </div>
-    </section>
-
-    <script>
-        // Script para la personalización
-        document.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        document.querySelectorAll('.light-option, .finish-option').forEach(option => {
-            option.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.light-option, .finish-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        // Efecto de scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleMirror - La Revolución en Espejos Inteligentes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* ====== VARIABLES DE LUJO EXTREMO ====== */
-        :root {
-            --bg: #000000;
-            --text: #ffffff;
-            --gold: #ffd700;
-            --gold-glow: #ffed4a;
-            --platinum: #e8e8e8;
-            --crystal: #00ffff;
-            --accent: #ff6b6b;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 215, 0, 0.3);
-            --shadow: 0 0 50px rgba(255, 215, 0, 0.3);
-            --radius: 20px;
-        }
-
-        /* ====== RESET Y BASE ====== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        html, body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ====== FONDO ANIMADO DE LUJO ====== */
-        .luxury-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
-            z-index: -1;
-            animation: bgShift 20s ease-in-out infinite;
-        }
-
-        @keyframes bgShift {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(180deg); }
-        }
-
-        /* ====== NAVEGACIÓN PREMIUM ====== */
-        .luxury-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gold);
-            z-index: 1000;
-            padding: 25px 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .luxury-logo {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 4px;
-            text-shadow: 0 0 30px var(--gold-glow);
-            position: relative;
-        }
-
-        .luxury-logo::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            animation: shine 3s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 60px;
-        }
-
-        .nav-links a {
-            color: var(--platinum);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 10px 0;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-            text-shadow: 0 0 20px var(--gold-glow);
-        }
-
-        /* ====== HERO SECTION IMPACTANTE ====== */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 50px 80px;
-            position: relative;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 1000px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            color: var(--bg);
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-title {
-            font-size: 5.5rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--platinum) 50%, var(--crystal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
-            letter-spacing: 3px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: var(--platinum);
-            margin-bottom: 50px;
-            line-height: 1.6;
-            font-weight: 300;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .hero-description {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin: 0 auto 60px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* ====== BOTONES DE IMPACTO ====== */
-        .hero-buttons {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .luxury-btn {
-            padding: 22px 50px;
-            border: 2px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-        }
-
-        .luxury-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .luxury-btn:hover::before {
-            left: 100%;
-        }
-
-        .luxury-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-            box-shadow: 
-                0 0 30px rgba(255, 215, 0, 0.3),
-                inset 0 0 30px rgba(255, 215, 0, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .luxury-btn.primary {
-            background: linear-gradient(135deg, var(--gold), #ffed4a);
-            color: var(--bg);
-            font-weight: 600;
-            border: none;
-        }
-
-        .luxury-btn.primary:hover {
-            background: linear-gradient(135deg, #ffed4a, var(--gold));
-            box-shadow: 
-                0 0 50px rgba(255, 215, 0, 0.5),
-                0 10px 30px rgba(255, 215, 0, 0.3);
-            transform: translateY(-3px) scale(1.05);
-        }
-
-        /* ====== VISUAL DEL PRODUCTO ====== */
-        .product-visual {
-            margin-top: 80px;
-            position: relative;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .mirror-showcase {
-            width: 400px;
-            height: 600px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 3px solid var(--gold);
-            border-radius: 25px;
-            position: relative;
-            box-shadow: 
-                0 0 80px rgba(255, 215, 0, 0.4),
-                inset 0 0 60px rgba(255, 215, 0, 0.1);
-            animation: mirrorGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes mirrorGlow {
-            0%, 100% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.4), inset 0 0 60px rgba(255, 215, 0, 0.1); }
-            50% { box-shadow: 0 0 120px rgba(255, 215, 0, 0.6), inset 0 0 80px rgba(255, 215, 0, 0.2); }
-        }
-
-        .mirror-showcase::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: var(--gold);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: floatAround 8s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: -2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: -4s;
-        }
-
-        @keyframes floatAround {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(100px, -50px) rotate(90deg); }
-            50% { transform: translate(50px, 100px) rotate(180deg); }
-            75% { transform: translate(-50px, 50px) rotate(270deg); }
-        }
-
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 4rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .nav-links {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .luxury-hero {
-                padding: 100px 30px 60px;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .hero-description {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .luxury-btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .nav-container {
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                gap: 25px;
-            }
-            
-            .mirror-showcase {
-                width: 300px;
-                height: 450px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .luxury-logo {
-                font-size: 1.8rem;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- FONDO ANIMADO DE LUJO -->
-    <div class="luxury-bg"></div>
-
-    <!-- NAVEGACIÓN PREMIUM -->
-    <nav class="luxury-nav">
-        <div class="nav-container">
-            <a href="#" class="luxury-logo">STYLEMIRROR</a>
-            <div class="nav-links">
-                <a href="#coleccion">Colección</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#galeria">Galería</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION IMPACTANTE -->
-    <section class="luxury-hero">
-        <div class="hero-content">
-            <div class="hero-badge">Edición Limitada</div>
-            
-            <h1 class="hero-title">StyleMirror Pro</h1>
-            
-            <h2 class="hero-subtitle">
-                El espejo que redefine el concepto de lujo y estilo personal
-            </h2>
-            
-            <p class="hero-description">
-                StyleMirror representa la culminación de la artesanía tradicional 
-                y la innovación tecnológica. Cada espejo es una pieza única, 
-                fabricada a mano con materiales exquisitos y diseñada para 
-                transformar tu rutina diaria en una experiencia extraordinaria.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#coleccion" class="luxury-btn primary">Descubrir la Colección</a>
-                <a href="#personalizar" class="luxury-btn">Crear el Mío</a>
-            </div>
-
-            <div class="product-visual">
-                <div class="mirror-showcase"></div>
-                <div class="floating-elements">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Efectos de interacción suaves
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Efecto de parallax sutil en el fondo
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const luxuryBg = document.querySelector('.luxury-bg');
-            luxuryBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
-
-        // Animación de entrada para los elementos
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos para animaciones de entrada
-        document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description, .hero-buttons').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease-out';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleMirror - La Revolución en Espejos Inteligentes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* ====== VARIABLES DE ORO ELEGANTE ====== */
-        :root {
-            --bg: #0a0a0a;
-            --text: #f5f5f5;
-            --gold-primary: #c9a96e;
-            --gold-secondary: #d4b483;
-            --gold-accent: #e6c994;
-            --gold-dark: #b8944c;
-            --gold-glow: rgba(201, 169, 110, 0.3);
-            --platinum: #e8e8e8;
-            --crystal: #d4d4d4;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(201, 169, 110, 0.2);
-            --shadow: 0 0 50px rgba(201, 169, 110, 0.2);
-            --radius: 20px;
-        }
-
-        /* ====== RESET Y BASE ====== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        html, body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ====== FONDO ANIMADO DE LUJO ====== */
-        .luxury-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(180, 150, 100, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
-            z-index: -1;
-            animation: bgShift 25s ease-in-out infinite;
-        }
-
-        @keyframes bgShift {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.05) rotate(5deg); }
-        }
-
-        /* ====== NAVEGACIÓN ELEGANTE ====== */
-        .luxury-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--gold-primary);
-            z-index: 1000;
-            padding: 25px 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .luxury-logo {
-            font-size: 2.2rem;
-            font-weight: 500;
-            color: var(--gold-primary);
-            text-decoration: none;
-            letter-spacing: 4px;
-            position: relative;
-            font-style: italic;
-        }
-
-        .luxury-logo::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-            animation: shine 4s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 60px;
-        }
-
-        .nav-links a {
-            color: var(--platinum);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            transition: all 0.4s ease;
-            position: relative;
-            padding: 10px 0;
-            font-weight: 300;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold-primary);
-            transition: width 0.4s ease;
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold-primary);
-        }
-
-        /* ====== HERO SECTION ELEGANTE ====== */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 150px 50px 80px;
-            position: relative;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 1000px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-            color: var(--bg);
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            font-weight: 500;
-            border: 1px solid var(--gold-secondary);
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            color: var(--gold-primary);
-            letter-spacing: 2px;
-            text-shadow: 0 0 30px var(--gold-glow);
-            font-style: italic;
-        }
-
-        .hero-subtitle {
-            font-size: 1.6rem;
-            color: var(--platinum);
-            margin-bottom: 40px;
-            line-height: 1.6;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: rgba(245, 245, 245, 0.8);
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* ====== BOTONES ELEGANTES ====== */
-        .hero-buttons {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .luxury-btn {
-            padding: 20px 45px;
-            border: 1px solid var(--gold-primary);
-            background: transparent;
-            color: var(--gold-primary);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-
-        .luxury-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .luxury-btn:hover::before {
-            left: 100%;
-        }
-
-        .luxury-btn:hover {
-            background: rgba(201, 169, 110, 0.05);
-            border-color: var(--gold-accent);
-            color: var(--gold-accent);
-        }
-
-        .luxury-btn.primary {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent));
-            color: var(--bg);
-            font-weight: 500;
-            border: none;
-        }
-
-        .luxury-btn.primary:hover {
-            background: linear-gradient(135deg, var(--gold-accent), var(--gold-primary));
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.3);
-        }
-
-        /* ====== VISUAL DEL PRODUCTO ELEGANTE ====== */
-        .product-visual {
-            margin-top: 80px;
-            position: relative;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .mirror-showcase {
-            width: 350px;
-            height: 550px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 2px solid var(--gold-primary);
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 
-                0 0 60px rgba(201, 169, 110, 0.2),
-                inset 0 0 40px rgba(201, 169, 110, 0.05);
-        }
-
-        .mirror-showcase::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            background: linear-gradient(135deg, transparent 0%, rgba(201, 169, 110, 0.03) 50%, transparent 100%);
-            border: 1px solid rgba(201, 169, 110, 0.1);
-            border-radius: 12px;
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            border: 1px solid var(--gold-primary);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: floatAround 10s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 120px;
-            height: 120px;
-            top: 10%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 80px;
-            height: 80px;
-            top: 60%;
-            right: 15%;
-            animation-delay: -3s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 25%;
-            animation-delay: -6s;
-        }
-
-        @keyframes floatAround {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
-            25% { transform: translate(80px, -40px) rotate(90deg); opacity: 0.15; }
-            50% { transform: translate(40px, 80px) rotate(180deg); opacity: 0.1; }
-            75% { transform: translate(-40px, 40px) rotate(270deg); opacity: 0.15; }
-        }
-
-        /* ====== SECCIÓN DE CARACTERÍSTICAS ====== */
-        .features-section {
-            padding: 120px 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
         .section-title {
             font-size: 3rem;
             text-align: center;
             margin-bottom: 80px;
-            font-weight: 300;
-            color: var(--gold-primary);
-            letter-spacing: 2px;
-            font-style: italic;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius);
-            padding: 40px;
-            transition: all 0.4s ease;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold-primary);
-            box-shadow: var(--shadow);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            color: var(--gold-primary);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--gold-primary);
-            font-weight: 400;
-        }
-
-        .feature-card p {
-            color: var(--platinum);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 4rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .nav-links {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .luxury-hero {
-                padding: 120px 30px 60px;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .hero-description {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .luxury-btn {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
-            }
-            
-            .nav-container {
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                gap: 25px;
-            }
-            
-            .mirror-showcase {
-                width: 280px;
-                height: 440px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .luxury-logo {
-                font-size: 1.6rem;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- FONDO ANIMADO ELEGANTE -->
-    <div class="luxury-bg"></div>
-
-    <!-- NAVEGACIÓN ELEGANTE -->
-    <nav class="luxury-nav">
-        <div class="nav-container">
-            <a href="#" class="luxury-logo">STYLEMIRROR</a>
-            <div class="nav-links">
-                <a href="#coleccion">Colección</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#galeria">Galería</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION ELEGANTE -->
-    <section class="luxury-hero">
-        <div class="hero-content">
-            <div class="hero-badge">Edición Maestra</div>
-            
-            <h1 class="hero-title">StyleMirror Élite</h1>
-            
-            <h2 class="hero-subtitle">
-                Donde la tradición artesanal se encuentra con la excelencia moderna
-            </h2>
-            
-            <p class="hero-description">
-                Cada StyleMirror es una obra maestra de la artesanía, creada por 
-                maestros vidrieros utilizando técnicas ancestrales y materiales 
-                de la más alta calidad. Una inversión atemporal en elegancia y 
-                sofisticación para su hogar.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#coleccion" class="luxury-btn primary">Descubrir la Colección</a>
-                <a href="#personalizar" class="luxury-btn">Configurar a Medida</a>
-            </div>
-
-            <div class="product-visual">
-                <div class="mirror-showcase"></div>
-                <div class="floating-elements">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE CARACTERÍSTICAS -->
-    <section class="features-section">
-        <h2 class="section-title">Excelencia en Cada Detalle</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">●</div>
-                <h3>Artesanía Superior</h3>
-                <p>Fabricado por maestros vidrieros con más de 50 años de experiencia, utilizando técnicas tradicionales perfeccionadas a lo largo de generaciones.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">●</div>
-                <h3>Materiales Exclusivos</h3>
-                <p>Selección de los cristales más puros y marcos en metales preciosos, garantizando durabilidad y belleza eterna.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">●</div>
-                <h3>Personalización Total</h3>
-                <p>Desde el tamaño hasta los acabados, cada StyleMirror se adapta a sus preferencias personales y espacio disponible.</p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Efectos de interacción suaves
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Efecto de parallax sutil en el fondo
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const luxuryBg = document.querySelector('.luxury-bg');
-            luxuryBg.style.transform = `translateY(${scrolled * 0.3}px)`;
-        });
-
-        // Animación de entrada para los elementos
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos para animaciones de entrada
-        document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description, .hero-buttons, .feature-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease-out';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleMirror - La Revolución en Espejos Inteligentes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* ====== VARIABLES DE ORO PURO ====== */
-        :root {
-            --bg: #0a0a0a;
-            --text: #f5f5f5;
-            --gold-primary: #d4af37;
-            --gold-secondary: #e6c994;
-            --gold-accent: #f4e4b4;
-            --gold-dark: #b8944c;
-            --gold-light: #f8efd4;
-            --gold-glow: rgba(212, 175, 55, 0.3);
-            --platinum: #e8e8e8;
-            --crystal: #d4d4d4;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(212, 175, 55, 0.2);
-            --shadow: 0 0 50px rgba(212, 175, 55, 0.2);
-            --radius: 20px;
-        }
-
-        /* ====== RESET Y BASE ====== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        html, body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ====== FONDO ANIMADO DE ORO ====== */
-        .luxury-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(180, 150, 55, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
-            z-index: -1;
-            animation: bgShift 25s ease-in-out infinite;
-        }
-
-        @keyframes bgShift {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.05) rotate(5deg); }
-        }
-
-        /* ====== NAVEGACIÓN DORADA ====== */
-        .luxury-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--gold-primary);
-            z-index: 1000;
-            padding: 25px 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .luxury-logo {
-            font-size: 2.2rem;
-            font-weight: 500;
-            color: var(--gold-primary);
-            text-decoration: none;
-            letter-spacing: 4px;
-            position: relative;
-            font-style: italic;
-        }
-
-        .luxury-logo::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-            animation: shine 4s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 60px;
-        }
-
-        .nav-links a {
-            color: var(--platinum);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            transition: all 0.4s ease;
-            position: relative;
-            padding: 10px 0;
-            font-weight: 300;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold-primary);
-            transition: width 0.4s ease;
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold-primary);
-        }
-
-        /* ====== HERO SECTION DORADO ====== */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 150px 50px 80px;
-            position: relative;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 1000px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-            color: var(--bg);
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            font-weight: 500;
-            border: 1px solid var(--gold-secondary);
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            color: var(--gold-primary);
-            letter-spacing: 2px;
-            text-shadow: 0 0 30px var(--gold-glow);
-            font-style: italic;
-        }
-
-        .hero-subtitle {
-            font-size: 1.6rem;
-            color: var(--platinum);
-            margin-bottom: 40px;
-            line-height: 1.6;
+            color: var(--gold);
             font-weight: 300;
             letter-spacing: 1px;
         }
 
-        .hero-description {
-            font-size: 1.2rem;
-            color: rgba(245, 245, 245, 0.8);
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* ====== BOTONES DORADOS ====== */
-        .hero-buttons {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .luxury-btn {
-            padding: 20px 45px;
-            border: 1px solid var(--gold-primary);
-            background: transparent;
-            color: var(--gold-primary);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-
-        .luxury-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .luxury-btn:hover::before {
-            left: 100%;
-        }
-
-        .luxury-btn:hover {
-            background: rgba(212, 175, 55, 0.05);
-            border-color: var(--gold-accent);
-            color: var(--gold-accent);
-        }
-
-        .luxury-btn.primary {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent));
-            color: var(--bg);
-            font-weight: 500;
-            border: none;
-        }
-
-        .luxury-btn.primary:hover {
-            background: linear-gradient(135deg, var(--gold-accent), var(--gold-primary));
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        /* ====== VISUAL DEL PRODUCTO DORADO ====== */
-        .product-visual {
-            margin-top: 80px;
-            position: relative;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .mirror-showcase {
-            width: 350px;
-            height: 550px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 2px solid var(--gold-primary);
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 
-                0 0 60px rgba(212, 175, 55, 0.2),
-                inset 0 0 40px rgba(212, 175, 55, 0.05);
-        }
-
-        .mirror-showcase::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.03) 50%, transparent 100%);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            border-radius: 12px;
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            border: 1px solid var(--gold-primary);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: floatAround 10s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 120px;
-            height: 120px;
-            top: 10%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 80px;
-            height: 80px;
-            top: 60%;
-            right: 15%;
-            animation-delay: -3s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 25%;
-            animation-delay: -6s;
-        }
-
-        @keyframes floatAround {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
-            25% { transform: translate(80px, -40px) rotate(90deg); opacity: 0.15; }
-            50% { transform: translate(40px, 80px) rotate(180deg); opacity: 0.1; }
-            75% { transform: translate(-40px, 40px) rotate(270deg); opacity: 0.15; }
-        }
-
-        /* ====== SECCIÓN DE CARACTERÍSTICAS DORADA ====== */
-        .features-section {
-            padding: 120px 50px;
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 80px;
-            font-weight: 300;
-            color: var(--gold-primary);
-            letter-spacing: 2px;
-            font-style: italic;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+        .benefit-card {
+            background: var(--bg);
+            padding: 50px 40px;
             border-radius: var(--radius);
-            padding: 40px;
-            transition: all 0.4s ease;
+            border: 1px solid var(--card-border);
             text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .feature-card:hover {
+        .benefit-card:hover {
+            border-color: var(--gold);
             transform: translateY(-10px);
-            border-color: var(--gold-primary);
             box-shadow: var(--shadow);
         }
 
-        .feature-icon {
-            font-size: 3rem;
+        .benefit-icon {
+            font-size: 3.5rem;
             margin-bottom: 25px;
-            color: var(--gold-primary);
+            color: var(--gold);
         }
 
-        .feature-card h3 {
+        .benefit-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--gold-primary);
+            margin-bottom: 20px;
+            color: var(--platinum);
             font-weight: 400;
         }
 
-        .feature-card p {
-            color: var(--platinum);
+        .benefit-card p {
+            color: var(--crystal);
             line-height: 1.7;
-            font-weight: 300;
+            font-size: 1rem;
         }
 
-        /* ====== SECCIÓN COLECCIÓN DORADA ====== */
-        .collection-section {
+        /* ====== COLECCIÓN EXCLUSIVA ====== */
+        .collection-preview {
             padding: 120px 50px;
-            background: var(--card-bg);
-            margin: 80px 0;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .collection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
         }
 
         .collection-card {
-            background: var(--bg);
-            padding: 40px;
+            background: var(--card-bg);
+            padding: 50px 40px;
             border-radius: var(--radius);
             border: 1px solid var(--card-border);
-            text-align: center;
             transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .collection-card:hover::before {
+            left: 100%;
         }
 
         .collection-card:hover {
-            border-color: var(--gold-primary);
+            border-color: var(--gold);
             transform: translateY(-5px);
         }
 
+        .collection-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
         .collection-name {
-            font-size: 1.8rem;
-            color: var(--gold-primary);
+            font-size: 2rem;
             margin-bottom: 15px;
+            color: var(--gold);
             font-weight: 400;
         }
 
         .collection-price {
-            font-size: 2rem;
-            color: var(--gold-secondary);
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--platinum);
             font-weight: 300;
         }
 
         .collection-features {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .collection-features li {
-            padding: 8px 0;
-            color: var(--platinum);
-            border-bottom: 1px solid var(--card-border);
+            padding: 12px 0;
+            color: var(--crystal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+        }
+
+        /* VIÑETAS MEJORADAS - ORO SOBRE FONDO OSCURO */
+        .collection-features li::before {
+            content: "✦";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
         }
 
         .collection-features li:last-child {
             border-bottom: none;
         }
 
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 4rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .nav-links {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .luxury-hero {
-                padding: 120px 30px 60px;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .hero-description {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .luxury-btn {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
-            }
-            
-            .nav-container {
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                gap: 25px;
-            }
-            
-            .mirror-showcase {
-                width: 280px;
-                height: 440px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .collection-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .luxury-logo {
-                font-size: 1.6rem;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- FONDO ANIMADO DORADO -->
-    <div class="luxury-bg"></div>
-
-    <!-- NAVEGACIÓN DORADA -->
-    <nav class="luxury-nav">
-        <div class="nav-container">
-            <a href="#" class="luxury-logo">STYLEMIRROR</a>
-            <div class="nav-links">
-                <a href="#coleccion">Colección</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#galeria">Galería</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION DORADO -->
-    <section class="luxury-hero">
-        <div class="hero-content">
-            <div class="hero-badge">Edición Maestra</div>
-            
-            <h1 class="hero-title">StyleMirror Élite</h1>
-            
-            <h2 class="hero-subtitle">
-                Donde la tradición artesanal se encuentra con la excelencia moderna
-            </h2>
-            
-            <p class="hero-description">
-                Cada StyleMirror es una obra maestra de la artesanía, creada por 
-                maestros vidrieros utilizando técnicas ancestrales y materiales 
-                de la más alta calidad. Una inversión atemporal en elegancia y 
-                sofisticación para su hogar.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#coleccion" class="luxury-btn primary">Descubrir la Colección</a>
-                <a href="#personalizar" class="luxury-btn">Configurar a Medida</a>
-            </div>
-
-            <div class="product-visual">
-                <div class="mirror-showcase"></div>
-                <div class="floating-elements">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE CARACTERÍSTICAS DORADA -->
-    <section class="features-section">
-        <h2 class="section-title">Excelencia en Cada Detalle</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">●</div>
-                <h3>Artesanía Superior</h3>
-                <p>Fabricado por maestros vidrieros con más de 50 años de experiencia, utilizando técnicas tradicionales perfeccionadas a lo largo de generaciones.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">●</div>
-                <h3>Materiales Exclusivos</h3>
-                <p>Selección de los cristales más puros y marcos en metales preciosos, garantizando durabilidad y belleza eterna.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">●</div>
-                <h3>Personalización Total</h3>
-                <p>Desde el tamaño hasta los acabados, cada StyleMirror se adapta a sus preferencias personales y espacio disponible.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN COLECCIÓN DORADA -->
-    <section id="coleccion" class="collection-section">
-        <h2 class="section-title">Nuestra Colección Exclusiva</h2>
-        <div class="collection-grid">
-            <div class="collection-card">
-                <h3 class="collection-name">Heritage Gold</h3>
-                <div class="collection-price">€12,500</div>
-                <ul class="collection-features">
-                    <li>Marco en oro 24k macizo</li>
-                    <li>Cristal de venecia antirreflejos</li>
-                    <li>Acabado con incrustaciones de diamantes</li>
-                    <li>Certificado de autenticidad</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-
-            <div class="collection-card">
-                <h3 class="collection-name">Platinum Legacy</h3>
-                <div class="collection-price">€9,800</div>
-                <ul class="collection-features">
-                    <li>Marco en platino 950</li>
-                    <li>Cristal inteligente de triple capa</li>
-                    <li>Iluminación diamante profesional</li>
-                    <li>Sistema de control táctil</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-
-            <div class="collection-card">
-                <h3 class="collection-name">Rose Gold Couture</h3>
-                <div class="collection-price">€8,200</div>
-                <ul class="collection-features">
-                    <li>Marco en oro rosa 18k</li>
-                    <li>Cristal con tratamiento exclusivo</li>
-                    <li>Detalles en cristal Swarovski</li>
-                    <li>Acabado satinado premium</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Efectos de interacción suaves
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Efecto de parallax sutil en el fondo
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const luxuryBg = document.querySelector('.luxury-bg');
-            luxuryBg.style.transform = `translateY(${scrolled * 0.3}px)`;
-        });
-
-        // Animación de entrada para los elementos
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos para animaciones de entrada
-        document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description, .hero-buttons, .feature-card, .collection-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease-out';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleMirror - Espejos Artesanales de Lujo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* ====== VARIABLES DE LUJO ELEGANTE ====== */
-        :root {
-            --bg: #0a0a0a;
-            --text: #f5f5f5;
-            --gold: #d4af37;
-            --gold-light: #f4e4b4;
-            --gold-dark: #b8944c;
-            --platinum: #e8e8e8;
-            --silver: #c0c0c0;
-            --crystal: #d4d4d4;
-            --bronze: #cd7f32;
-            --card-bg: rgba(30, 30, 30, 0.8);
-            --card-border: rgba(212, 175, 55, 0.3);
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            --radius: 16px;
-        }
-
-        /* ====== RESET Y BASE ====== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        html, body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            line-height: 1.7;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ====== FONDO SOPHISTICADO ====== */
-        .luxury-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%),
-                linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
-            z-index: -1;
-        }
-
-        /* ====== NAVEGACIÓN ELEGANTE ====== */
-        .luxury-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gold);
-            z-index: 1000;
-            padding: 20px 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .luxury-logo {
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 3px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 50px;
-        }
-
-        .nav-links a {
-            color: var(--silver);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* ====== HERO SECTION ====== */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .hero-content {
-            flex: 1;
-            padding-right: 60px;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--gold);
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--platinum);
-            margin-bottom: 32px;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--crystal);
-            margin-bottom: 48px;
-            line-height: 1.8;
-        }
-
-        /* ====== BOTONES DORADOS ELEGANTES ====== */
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .luxury-btn {
-            padding: 16px 32px;
-            border: 1px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .luxury-btn:hover {
-            background: var(--gold);
-            color: var(--bg);
-        }
-
-        .luxury-btn.primary {
-            background: var(--gold);
-            color: var(--bg);
-        }
-
-        .luxury-btn.primary:hover {
-            background: var(--gold-light);
-            border-color: var(--gold-light);
-        }
-
-        .hero-visual {
-            flex: 1;
-            position: relative;
-            height: 500px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ====== PERSONALIZACIÓN INTEGRADA ====== */
-        .customization-section {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
+        /* ====== CALL TO ACTION PERSUASIVO ====== */
+        .cta-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(20, 20, 20, 0.95) 100%);
             text-align: center;
-            margin-bottom: 60px;
-            color: var(--gold);
-            font-weight: 300;
+            border-top: 1px solid var(--card-border);
         }
 
-        .customization-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .custom-option {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-        }
-
-        .option-title {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-            font-weight: 400;
-        }
-
-        .color-options {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .color-option {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .color-option.selected {
-            border-color: var(--gold);
-            transform: scale(1.1);
-        }
-
-        .text-input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text);
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-family: inherit;
-        }
-
-        .finish-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .finish-option {
-            padding: 12px;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .finish-option.selected {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        /* ====== MODELOS DE ESPEJOS ====== */
-        .models-section {
-            padding: 100px 40px;
-            background: var(--card-bg);
-        }
-
-        .models-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .model-card {
-            background: var(--bg);
-            padding: 40px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-        }
-
-        .model-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .model-name {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--gold);
-        }
-
-        .model-price {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--platinum);
-        }
-
-        .model-features {
-            list-style: none;
+        .cta-title {
+            font-size: 2.8rem;
             margin-bottom: 30px;
-        }
-
-        .model-features li {
-            padding: 8px 0;
-            color: var(--crystal);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .model-features li:before {
-            content: "•";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-        }
-
-        .model-features li:last-child {
-            border-bottom: none;
-        }
-
-        /* ====== CÓMO FUNCIONA ====== */
-        .how-it-works {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .step {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--gold);
-            color: var(--bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        .step h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--platinum);
-        }
-
-        .step p {
-            color: var(--crystal);
-            line-height: 1.7;
-        }
-
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 1024px) {
-            .luxury-hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 60px;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 25px;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .customization-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .models-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- FONDO ELEGANTE -->
-    <div class="luxury-bg"></div>
-
-    <!-- NAVEGACIÓN -->
-    <nav class="luxury-nav">
-        <div class="nav-container">
-            <a href="#" class="luxury-logo">STYLEMIRROR</a>
-            <div class="nav-links">
-                <a href="#modelos">Modelos</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#funciona">Cómo Funciona</a>
-                <a href="#contacto">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="luxury-hero">
-        <div class="hero-content">
-            <h1 class="hero-title">StyleMirror Élite</h1>
-            <h2 class="hero-subtitle">Arte y Artesanía en Cada Reflejo</h2>
-            <p class="hero-description">
-                Descubra la fusión perfecta entre la tradición artesanal y el diseño contemporáneo. 
-                Cada StyleMirror es una pieza única, creada por maestros vidrieros que dominan 
-                técnicas ancestrales perfeccionadas a lo largo de generaciones.
-            </p>
-            <div class="hero-buttons">
-                <a href="#modelos" class="luxury-btn primary">Ver Colección</a>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <!-- Espacio para visualización del espejo -->
-        </div>
-    </section>
-
-    <!-- PERSONALIZACIÓN INTEGRADA -->
-    <section id="personalizar" class="customization-section">
-        <h2 class="section-title">Personalice Su StyleMirror</h2>
-        <div class="customization-grid">
-            <div class="custom-option">
-                <h3 class="option-title">Acabado del Marco</h3>
-                <div class="color-options">
-                    <div class="color-option selected" style="background: #d4af37;" title="Oro 24k"></div>
-                    <div class="color-option" style="background: #e5e4e2;" title="Platino"></div>
-                    <div class="color-option" style="background: #b76e79;" title="Oro Rosa"></div>
-                    <div class="color-option" style="background: #000000;" title Negro Obsidiana"></div>
-                    <div class="color-option" style="background: #cd7f32;" title="Bronce"></div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Inscripción Personal</h3>
-                <input type="text" class="text-input" placeholder="Su nombre o iniciales" maxlength="20">
-                <input type="text" class="text-input" placeholder="Frase personalizada" maxlength="40">
-                <select class="text-input">
-                    <option>Tipografía Clásica</option>
-                    <option>Tipografía Moderna</option>
-                    <option>Tipografía Script Elegante</option>
-                </select>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Acabado de Superficie</h3>
-                <div class="finish-options">
-                    <div class="finish-option selected">Brillante Espejo</div>
-                    <div class="finish-option">Satinado Suave</div>
-                    <div class="finish-option">Mate Elegante</div>
-                    <div class="finish-option">Texturizado Artesanal</div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Tamaño y Forma</h3>
-                <div class="finish-options">
-                    <div class="finish-option">Rectangular Clásico</div>
-                    <div class="finish-option selected">Ovalado Elegante</div>
-                    <div class="finish-option">Redondo Moderno</div>
-                    <div class="finish-option">Personalizado</div>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center;">
-            <a href="#contacto" class="luxury-btn primary">Solicitar Cotización</a>
-        </div>
-    </section>
-
-    <!-- MODELOS DE ESPEJOS -->
-    <section id="modelos" class="models-section">
-        <h2 class="section-title">Nuestra Colección Signature</h2>
-        <div class="models-grid">
-            <div class="model-card">
-                <h3 class="model-name">Heritage Gold</h3>
-                <div class="model-price">€12,500</div>
-                <ul class="model-features">
-                    <li>Marco en oro 24k macizo certificado</li>
-                    <li>Cristal de venecia antirreflejos</li>
-                    <li>Procesado artesanal de 200 horas</li>
-                    <li>Certificado de autenticidad y procedencia</li>
-                    <li>Garantía vitalicia</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
-            </div>
-
-            <div class="model-card">
-                <h3 class="model-name">Platinum Vision</h3>
-                <div class="model-price">€9,800</div>
-                <ul class="model-features">
-                    <li>Marco en platino 950 de primera calidad</li>
-                    <li>Sistema de iluminación ambiental regulable</li>
-                    <li>Tecnología de reconocimiento de materiales</li>
-                    <li>Integración con sistemas de domótica</li>
-                    <li>Asistente de estilo personalizado</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
-            </div>
-
-            <div class="model-card">
-                <h3 class="model-name">Rose Gold Couture</h3>
-                <div class="model-price">€8,200</div>
-                <ul class="model-features">
-                    <li>Marco en oro rosa 18k con detalles</li>
-                    <li>Cristal con tratamiento exclusivo antihuellas</li>
-                    <li>Sistema de análisis de color personalizado</li>
-                    <li>Memoria de preferencias de usuario</li>
-                    <li>Actualizaciones de estilo estacionales</li>
-                </ul>
-                <a href="#personalizar" class="luxury-btn">Personalizar Este Modelo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CÓMO FUNCIONA -->
-    <section id="funciona" class="how-it-works">
-        <h2 class="section-title">El Proceso StyleMirror</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Consulta de Diseño</h3>
-                <p>Nuestros especialistas en diseño trabajan con usted para entender sus necesidades y preferencias estéticas.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Artesanía Tradicional</h3>
-                <p>Maestros vidrieros aplican técnicas centenarias para crear su espejo con la más alta calidad.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Tecnología Discreta</h3>
-                <p>Integramos sistemas avanzados que complementan la artesanía sin comprometer la estética.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Instalación Premium</h3>
-                <p>Nuestro equipo especializado instala su StyleMirror garantizando perfección en cada detalle.</p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Script para la personalización
-        document.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        document.querySelectorAll('.finish-option').forEach(option => {
-            option.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.finish-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        // Scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>StyleMirror - Espejos Artesanales de Lujo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* ====== VARIABLES DE LUJO ELEGANTE ====== */
-        :root {
-            --bg: #0a0a0a;
-            --text: #f5f5f5;
-            --gold: #d4af37;
-            --gold-light: #f4e4b4;
-            --gold-dark: #b8944c;
-            --platinum: #e8e8e8;
-            --silver: #c0c0c0;
-            --crystal: #d4d4d4;
-            --bronze: #cd7f32;
-            --card-bg: rgba(30, 30, 30, 0.8);
-            --card-border: rgba(212, 175, 55, 0.3);
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            --radius: 16px;
-        }
-
-        /* ====== RESET Y BASE ====== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        html, body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            line-height: 1.7;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ====== FONDO SOPHISTICADO ====== */
-        .luxury-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%),
-                linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
-            z-index: -1;
-        }
-
-        /* ====== NAVEGACIÓN ELEGANTE ====== */
-        .luxury-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gold);
-            z-index: 1000;
-            padding: 20px 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .luxury-logo {
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 3px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 50px;
-        }
-
-        .nav-links a {
-            color: var(--silver);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* ====== HERO SECTION ====== */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .hero-content {
-            flex: 1;
-            padding-right: 60px;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--gold);
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--platinum);
-            margin-bottom: 32px;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--crystal);
-            margin-bottom: 48px;
-            line-height: 1.8;
-        }
-
-        /* ====== BOTONES DORADOS ELEGANTES ====== */
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .luxury-btn {
-            padding: 16px 32px;
-            border: 1px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .luxury-btn:hover {
-            background: var(--gold);
-            color: var(--bg);
-        }
-
-        .luxury-btn.primary {
-            background: var(--gold);
-            color: var(--bg);
-        }
-
-        .luxury-btn.primary:hover {
-            background: var(--gold-light);
-            border-color: var(--gold-light);
-        }
-
-        .hero-visual {
-            flex: 1;
-            position: relative;
-            height: 500px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ====== PERSONALIZACIÓN INTEGRADA ====== */
-        .customization-section {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 60px;
             color: var(--gold);
             font-weight: 300;
         }
 
-        .customization-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .custom-option {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--radius);
-            border: 1px solid var(--card-border);
-        }
-
-        .option-title {
+        .cta-subtitle {
             font-size: 1.3rem;
+            color: var(--platinum);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ====== GARANTÍAS Y SEGURIDAD ====== */
+        .guarantees-section {
+            padding: 80px 50px;
+            background: var(--bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guarantee-item {
+            padding: 30px;
+        }
+
+        .guarantee-icon {
+            font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--gold);
+        }
+
+        .guarantee-item h3 {
+            color: var(--platinum);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             font-weight: 400;
         }
 
-        .color-options {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .color-option {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .color-option.selected {
-            border-color: var(--gold);
-            transform: scale(1.1);
-        }
-
-        .text-input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text);
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-family: inherit;
-        }
-
-        .finish-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .finish-option {
-            padding: 12px;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .finish-option.selected {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        /* ====== CÓMO FUNCIONA ====== */
-        .how-it-works {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .step {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--gold);
-            color: var(--bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        .step h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--platinum);
-        }
-
-        .step p {
+        .guarantee-item p {
             color: var(--crystal);
-            line-height: 1.7;
+            font-size: 0.9rem;
         }
 
         /* ====== FOOTER ====== */
         .luxury-footer {
             background: var(--card-bg);
-            padding: 60px 40px;
+            padding: 60px 50px;
             border-top: 1px solid var(--card-border);
             margin-top: 80px;
         }
@@ -4661,42 +551,42 @@
             }
             
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                gap: 25px;
+                gap: 30px;
             }
             
             .hero-buttons {
                 justify-content: center;
             }
             
-            .customization-grid {
+            .benefits-grid, .collection-grid {
                 grid-template-columns: 1fr;
             }
             
-            .steps {
-                grid-template-columns: 1fr;
+            .hero-title {
+                font-size: 2.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- FONDO ELEGANTE -->
+    <!-- FONDO DE LUJO -->
     <div class="luxury-bg"></div>
 
     <!-- NAVEGACIÓN -->
     <nav class="luxury-nav">
         <div class="nav-container">
-            <a href="index.html" class="luxury-logo">STYLEMIRROR</a>
+            <a href="index.html" class="luxury-logo">StyleMirror</a>
             <div class="nav-links">
                 <a href="coleccion.html">Colección</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#funciona">Cómo Funciona</a>
-                <a href="#contacto">Contacto</a>
+                <a href="sobre-nosotros.html">Nosotros</a>
+                <a href="proceso-artesanal.html">Artesanía</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </div>
     </nav>
@@ -4704,97 +594,115 @@
     <!-- HERO SECTION -->
     <section class="luxury-hero">
         <div class="hero-content">
-            <h1 class="hero-title">StyleMirror Élite</h1>
-            <h2 class="hero-subtitle">Arte y Artesanía en Cada Reflejo</h2>
+            <div class="hero-badge">Edición Limitada 2024</div>
+            <h1 class="hero-title">El Espejo Que Define Su Legado</h1>
+            <h2 class="hero-subtitle">Más que un espejo, una declaración de estilo atemporal para los espacios más exclusivos</h2>
             <p class="hero-description">
-                Descubra la fusión perfecta entre la tradición artesanal y el diseño contemporáneo. 
-                Cada StyleMirror es una pieza única, creada por maestros vidrieros que dominan 
-                técnicas ancestrales perfeccionadas a lo largo de generaciones.
+                StyleMirror representa la culminación de tres generaciones de maestría artesanal. 
+                Cada pieza es creada con materiales exquisitos y técnicas ancestrales, ofreciendo 
+                no solo un reflejo perfecto, sino una inversión que aprecia con el tiempo.
             </p>
             <div class="hero-buttons">
-                <a href="coleccion.html" class="luxury-btn primary">Ver Colección</a>
-                <a href="#personalizar" class="luxury-btn">Personalizar</a>
+                <a href="coleccion.html" class="luxury-btn primary">Descubrir Colección</a>
+                <a href="contacto.html" class="luxury-btn">Consulta Personal</a>
             </div>
         </div>
         <div class="hero-visual">
-            <!-- Espacio para visualización del espejo -->
+            <div class="mirror-display"></div>
         </div>
     </section>
 
-    <!-- PERSONALIZACIÓN INTEGRADA -->
-    <section id="personalizar" class="customization-section">
-        <h2 class="section-title">Personalice Su StyleMirror</h2>
-        <div class="customization-grid">
-            <div class="custom-option">
-                <h3 class="option-title">Acabado del Marco</h3>
-                <div class="color-options">
-                    <div class="color-option selected" style="background: #d4af37;" title="Oro 24k"></div>
-                    <div class="color-option" style="background: #e5e4e2;" title="Platino"></div>
-                    <div class="color-option" style="background: #b76e79;" title="Oro Rosa"></div>
-                    <div class="color-option" style="background: #000000;" title="Negro Obsidiana"></div>
-                    <div class="color-option" style="background: #cd7f32;" title="Bronce"></div>
-                </div>
+    <!-- BENEFICIOS -->
+    <section class="benefits-section">
+        <h2 class="section-title">Por Qué Elegir StyleMirror</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💎</div>
+                <h3>Inversión Atemporal</h3>
+                <p>Los espejos StyleMirror no se deprecian. Como piezas de arte funcional, mantienen y aumentan su valor con los años, convirtiéndose en herencias familiares.</p>
             </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Inscripción Personal</h3>
-                <input type="text" class="text-input" placeholder="Su nombre o iniciales" maxlength="20">
-                <input type="text" class="text-input" placeholder="Frase personalizada" maxlength="40">
-                <select class="text-input">
-                    <option>Tipografía Clásica</option>
-                    <option>Tipografía Moderna</option>
-                    <option>Tipografía Script Elegante</option>
-                </select>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Acabado de Superficie</h3>
-                <div class="finish-options">
-                    <div class="finish-option selected">Brillante Espejo</div>
-                    <div class="finish-option">Satinado Suave</div>
-                    <div class="finish-option">Mate Elegante</div>
-                    <div class="finish-option">Texturizado Artesanal</div>
-                </div>
-            </div>
-
-            <div class="custom-option">
-                <h3 class="option-title">Tamaño y Forma</h3>
-                <div class="finish-options">
-                    <div class="finish-option">Rectangular Clásico</div>
-                    <div class="finish-option selected">Ovalado Elegante</div>
-                    <div class="finish-option">Redondo Moderno</div>
-                    <div class="finish-option">Personalizado</div>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center;">
-            <a href="#contacto" class="luxury-btn primary">Solicitar Cotización</a>
-        </div>
-    </section>
-
-    <!-- CÓMO FUNCIONA -->
-    <section id="funciona" class="how-it-works">
-        <h2 class="section-title">El Proceso StyleMirror</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Consulta de Diseño</h3>
-                <p>Nuestros especialistas en diseño trabajan con usted para entender sus necesidades y preferencias estéticas.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Artesanía Tradicional</h3>
-                <p>Maestros vidrieros aplican técnicas centenarias para crear su espejo con la más alta calidad.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
                 <h3>Tecnología Discreta</h3>
-                <p>Integramos sistemas avanzados que complementan la artesanía sin comprometer la estética.</p>
+                <p>Integramos sistemas inteligentes que se activan solo cuando se necesitan, manteniendo la pureza estética mientras ofrecen funcionalidad avanzada.</p>
             </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Instalación Premium</h3>
-                <p>Nuestro equipo especializado instala su StyleMirror garantizando perfección en cada detalle.</p>
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Garantía Vitalicia</h3>
+                <p>Respaldamos nuestra artesanía con garantías que trascienden generaciones. Su inversión está protegida para siempre.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLECCIÓN PREVIEW -->
+    <section class="collection-preview">
+        <h2 class="section-title">Colección Signature</h2>
+        <div class="collection-grid">
+            <div class="collection-card">
+                <div class="collection-badge">Más Vendido</div>
+                <h3 class="collection-name">Heritage Gold</h3>
+                <div class="collection-price">€14,800</div>
+                <ul class="collection-features">
+                    <li>Marco en oro 24k macizo certificado</li>
+                    <li>Cristal de venecia antirreflejos</li>
+                    <li>Procesado artesanal de 200 horas</li>
+                    <li>Garantía vitalicia transferible</li>
+                    <li>Certificado de autenticidad</li>
+                    <li>Instalación premium incluida</li>
+                </ul>
+                <a href="coleccion.html" class="luxury-btn">Ver Detalles</a>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-badge">Tecnología Avanzada</div>
+                <h3 class="collection-name">Platinum Vision</h3>
+                <div class="collection-price">€11,200</div>
+                <ul class="collection-features">
+                    <li>Marco en platino 950 de primera calidad</li>
+                    <li>Sistema de iluminación profesional</li>
+                    <li>Integración domótica completa</li>
+                    <li>Control por voz y gestos</li>
+                    <li>Actualizaciones de por vida</li>
+                    <li>Asistente de estilo personal</li>
+                </ul>
+                <a href="coleccion.html" class="luxury-btn">Ver Detalles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+        <div class="urgency-badge">Solo 3 Unidades Disponibles</div>
+        <h2 class="cta-title">Transforme Su Espacio Hoy</h2>
+        <p class="cta-subtitle">
+            Cada StyleMirror es una pieza única. No espere para adquirir la suya. 
+            Nuestros asesores están listos para guiarle en la elección perfecta para su hogar o proyecto.
+        </p>
+        <a href="contacto.html" class="luxury-btn primary">Agendar Consulta Privada</a>
+    </section>
+
+    <!-- GARANTÍAS -->
+    <section class="guarantees-section">
+        <div class="guarantees-grid">
+            <div class="guarantee-item">
+                <div class="guarantee-icon">🚚</div>
+                <h3>Envío Premium</h3>
+                <p>Entrega asegurada y instalación profesional en todo el mundo</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">🔄</div>
+                <h3>Garantía Real</h3>
+                <p>Cobertura vitalicia que protege su inversión para siempre</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">💳</div>
+                <h3>Financiamiento</h3>
+                <p>Opciones de pago flexibles para clientes exclusivos</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">👑</div>
+                <h3>Servicio Real</h3>
+                <p>Atención personalizada 24/7 para clientes StyleMirror</p>
             </div>
         </div>
     </section>
@@ -4810,42 +718,31 @@
                 <h3>Explorar</h3>
                 <a href="index.html">Inicio</a>
                 <a href="coleccion.html">Colección</a>
-                <a href="#personalizar">Personalizar</a>
-                <a href="#funciona">Cómo Funciona</a>
+                <a href="sobre-nosotros.html">Sobre Nosotros</a>
+                <a href="proceso-artesanal.html">Proceso Artesanal</a>
             </div>
             <div class="footer-section">
                 <h3>Contacto</h3>
-                <a href="mailto:info@stylemirror.com">info@stylemirror.com</a>
-                <a href="tel:+34911234567">+34 911 234 567</a>
-                <p style="color: var(--crystal); margin-top: 10px;">Madrid, España</p>
+                <a href="contacto.html">Consultas Generales</a>
+                <a href="contacto.html">Ventas Empresariales</a>
+                <a href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
+                <a href="contacto.html">Soporte</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Garantías</a>
+                <a href="#">Devoluciones</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 StyleMirror. Todos los derechos reservados.</p>
+            <p>&copy; 2024 StyleMirror. Todos los derechos reservados. | Madrid, España</p>
         </div>
     </footer>
 
     <script>
-        // Script para la personalización
-        document.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        document.querySelectorAll('.finish-option').forEach(option => {
-            option.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.finish-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        // Scroll suave
+        // Efectos de scroll suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -4858,6 +755,32 @@
                 }
             });
         });
+
+        // Contador de unidades (efecto de urgencia)
+        let units = 3;
+        const updateCounter = () => {
+            if (units > 0) {
+                document.querySelector('.urgency-badge').textContent = `Solo ${units} Unidades Disponibles`;
+            }
+        };
+
+        // Efecto de aparición en scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.benefit-card, .collection-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
+  
