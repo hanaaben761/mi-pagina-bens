@@ -495,6 +495,308 @@
             flex-wrap: wrap;
         }
 
+        /* ====== SECCIÓN DE PERSONALIZACIÓN ====== */
+        .customization-section {
+            padding: 120px 50px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .customization-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .customization-preview {
+            flex: 1;
+            position: sticky;
+            top: 150px;
+        }
+
+        .mirror-preview {
+            width: 100%;
+            height: 600px;
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow), var(--glow);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preview-mirror {
+            width: 280px;
+            height: 450px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%);
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(212, 175, 55, 0.3), 0 0 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .preview-mirror::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.15) 50%, rgba(255, 105, 180, 0.15) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+        }
+
+        .customization-options {
+            flex: 1;
+        }
+
+        .option-group {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+        }
+
+        .option-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-weight: 400;
+            position: relative;
+        }
+
+        .option-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--pink);
+        }
+
+        .color-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .color-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 5px black;
+        }
+
+        .texture-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .texture-option {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .texture-option:hover {
+            transform: scale(1.05);
+        }
+
+        .texture-option.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .texture-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px black;
+            z-index: 2;
+        }
+
+        .texture-pattern {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .pattern-wood {
+            background: linear-gradient(45deg, #8B4513 25%, transparent 25%), 
+                        linear-gradient(-45deg, #8B4513 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #8B4513 75%), 
+                        linear-gradient(-45deg, transparent 75%, #8B4513 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        .pattern-marble {
+            background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%), 
+                        linear-gradient(-45deg, #c0c0c0 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #e0e0e0 75%), 
+                        linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        .pattern-crystal {
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.6) 0%, transparent 50%);
+            background-color: #f0f8ff;
+        }
+
+        .pattern-geometric {
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, #d4af37 10px, #d4af37 20px);
+            background-color: #1a1a1a;
+        }
+
+        .led-options {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .led-option {
+            flex: 1;
+            min-width: 120px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .led-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .led-option.selected {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .led-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .custom-text-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: inherit;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-text-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        .text-preview {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+            color: var(--gold);
+            border: 1px dashed var(--gold);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .customization-summary {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--gold);
+            border-top: 2px solid var(--gold);
+            margin-top: 10px;
+        }
+
         /* ====== SECCIÓN DE PROCESO ARTESANAL ====== */
         .process-section {
             padding: 100px 50px;
@@ -703,6 +1005,15 @@
             .section-title::before, .section-title::after {
                 display: none;
             }
+            
+            .customization-container {
+                flex-direction: column;
+            }
+            
+            .customization-preview {
+                position: static;
+                margin-bottom: 40px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -728,6 +1039,10 @@
             
             .hero-subtitle::before {
                 display: none;
+            }
+            
+            .color-options, .texture-options, .led-options {
+                justify-content: center;
             }
         }
     </style>
@@ -756,7 +1071,7 @@
             <h1 class="hero-title">Nuestra Colección Signature</h1>
             <h2 class="hero-subtitle">Descubra los espejos más exclusivos jamás creados, diseñados para espacios que exigen perfección y elegancia atemporal</h2>
             <div class="hero-buttons">
-                <a href="contacto.html" class="luxury-btn primary">Agendar Vista Privada</a>
+                <a href="#personalizacion" class="luxury-btn primary">Personalizar Mi Espejo</a>
                 <a href="proceso-artesanal.html" class="luxury-btn">Conocer Nuestra Artesanía</a>
             </div>
         </div>
@@ -769,225 +1084,4 @@
             <div class="collection-card">
                 <div class="collection-badge">Más Vendido</div>
                 <h3 class="collection-name">Heritage Gold</h3>
-                <div class="collection-price">€14,800</div>
-                <ul class="collection-features">
-                    <li>Marco en oro 24k macizo certificado</li>
-                    <li>Cristal de venecia antirreflejos</li>
-                    <li>Procesado artesanal de 200 horas</li>
-                    <li>Garantía vitalicia transferible</li>
-                    <li>Certificado de autenticidad</li>
-                    <li>Instalación premium incluida</li>
-                </ul>
-                <div class="collection-actions">
-                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
-                    <a href="heritage-gold.html" class="luxury-btn">Ver Detalles</a>
-                </div>
-            </div>
-
-            <div class="collection-card">
-                <div class="collection-badge">Tecnología Avanzada</div>
-                <h3 class="collection-name">Platinum Vision</h3>
-                <div class="collection-price">€11,200</div>
-                <ul class="collection-features">
-                    <li>Marco en platino 950 de primera calidad</li>
-                    <li>Sistema de iluminación profesional</li>
-                    <li>Integración domótica completa</li>
-                    <li>Control por voz y gestos</li>
-                    <li>Actualizaciones de por vida</li>
-                    <li>Asistente de estilo personal</li>
-                </ul>
-                <div class="collection-actions">
-                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
-                    <a href="platinum-vision.html" class="luxury-btn">Ver Detalles</a>
-                </div>
-            </div>
-
-            <div class="collection-card">
-                <div class="collection-badge">Nueva Colección</div>
-                <h3 class="collection-name">Royal Crystal</h3>
-                <div class="collection-price">€9,600</div>
-                <ul class="collection-features">
-                    <li>Cristal de roca tallado a mano</li>
-                    <li>Incrustaciones de diamantes naturales</li>
-                    <li>Base de mármol de Carrara</li>
-                    <li>Iluminación ambiental regulable</li>
-                    <li>Sistema de niebla antimanchas</li>
-                    <li>Certificado GIA incluido</li>
-                </ul>
-                <div class="collection-actions">
-                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
-                    <a href="royal-crystal.html" class="luxury-btn">Ver Detalles</a>
-                </div>
-            </div>
-
-            <div class="collection-card">
-                <div class="collection-badge">Edición Limitada</div>
-                <h3 class="collection-name">Black Diamond</h3>
-                <div class="collection-price">€18,500</div>
-                <ul class="collection-features">
-                    <li>Marco de obsidiana pulida</li>
-                    <li>Incrustaciones de diamantes negros</li>
-                    <li>Acabado mate premium</li>
-                    <li>Sistema de reconocimiento facial</li>
-                    <li>Pantalla táctil oculta</li>
-                    <li>Limitado a 50 unidades mundial</li>
-                </ul>
-                <div class="collection-actions">
-                    <a href="contacto.html" class="luxury-btn primary">Solicitar Información</a>
-                    <a href="black-diamond.html" class="luxury-btn">Ver Detalles</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESO ARTESANAL -->
-    <section class="process-section">
-        <h2 class="section-title">Artesanía Excepcional</h2>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>Selección de Materiales</h3>
-                <p>Cada material es seleccionado personalmente de las mejores canteras y proveedores a nivel mundial, garantizando calidad y exclusividad.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>Diseño Personalizado</h3>
-                <p>Nuestros maestros artesanos trabajan con usted para crear un diseño único que refleje su estilo y personalidad.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>Fabricación Artesanal</h3>
-                <p>Cada espejo requiere entre 150-300 horas de trabajo manual especializado, asegurando perfección en cada detalle.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>Control de Calidad</h3>
-                <p>Rigurosos controles garantizan que cada pieza cumple con los estándares más exigentes antes de llegar a su hogar.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CALL TO ACTION -->
-    <section class="cta-section">
-        <div class="urgency-badge">Solo 3 Unidades Disponibles por Modelo</div>
-        <h2 class="cta-title">Convierta Su Hogar en una Galería</h2>
-        <p class="cta-subtitle">
-            Cada StyleMirror es una obra maestra única. No espere para adquirir la suya. 
-            Nuestros asesores de arte están listos para ayudarle a elegir la pieza perfecta.
-        </p>
-        <a href="contacto.html" class="luxury-btn primary">Agendar Consulta Privada</a>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="luxury-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>StyleMirror</h3>
-                <p style="color: var(--crystal); line-height: 1.6;">Espejos artesanales de lujo creados para los más exigentes.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Explorar</h3>
-                <a href="index.html">Inicio</a>
-                <a href="coleccion.html">Colección</a>
-                <a href="sobre-nosotros.html">Sobre Nosotros</a>
-                <a href="proceso-artesanal.html">Proceso Artesanal</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contacto</h3>
-                <a href="contacto.html">Consultas Generales</a>
-                <a href="contacto.html">Ventas Empresariales</a>
-                <a href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
-                <a href="contacto.html">Soporte</a>
-            </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <a href="terminos.html">Términos y Condiciones</a>
-                <a href="privacidad.html">Política de Privacidad</a>
-                <a href="garantias.html">Garantías</a>
-                <a href="devoluciones.html">Devoluciones</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 StyleMirror. Todos los derechos reservados. | Madrid, España</p>
-        </div>
-    </footer>
-
-    <script>
-        // Crear diamantes brillantes en el fondo
-        function createDiamonds() {
-            const bg = document.getElementById('luxury-bg');
-            const diamondCount = 20;
-            
-            for (let i = 0; i < diamondCount; i++) {
-                const diamond = document.createElement('div');
-                diamond.classList.add('diamond');
-                
-                // Posición aleatoria
-                diamond.style.left = Math.random() * 100 + 'vw';
-                diamond.style.top = Math.random() * 100 + 'vh';
-                
-                // Tamaño aleatorio
-                const size = 6 + Math.random() * 10;
-                diamond.style.width = size + 'px';
-                diamond.style.height = size + 'px';
-                
-                // Animación aleatoria
-                diamond.style.animationDelay = Math.random() * 5 + 's';
-                diamond.style.animationDuration = 3 + Math.random() * 4 + 's';
-                
-                bg.appendChild(diamond);
-            }
-        }
-
-        // Crear partículas de purpurina
-        function createGlitter() {
-            const bg = document.getElementById('luxury-bg');
-            const glitterCount = 50;
-            
-            for (let i = 0; i < glitterCount; i++) {
-                const glitter = document.createElement('div');
-                glitter.classList.add('glitter');
-                
-                // Posición aleatoria
-                glitter.style.left = Math.random() * 100 + 'vw';
-                glitter.style.top = Math.random() * 100 + 'vh';
-                
-                // Tamaño aleatorio
-                const size = 2 + Math.random() * 4;
-                glitter.style.width = size + 'px';
-                glitter.style.height = size + 'px';
-                
-                // Animación aleatoria
-                glitter.style.animationDelay = Math.random() * 8 + 's';
-                glitter.style.animationDuration = 5 + Math.random() * 10 + 's';
-                
-                bg.appendChild(glitter);
-            }
-        }
-
-        // Efectos de scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Efecto de aparición en scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        });
-
-        document.querySelectorAll('.collection-card, .process-step').forEach(el => {
-            el.style.opacity = '0
+                <div class="
