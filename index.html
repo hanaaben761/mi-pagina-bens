@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ====== VARIABLES DE LUJO GIRLY ====== */
+        /* ====== VARIABLES DE LUJO DORADO Y ROSA ====== */
         :root {
             --bg: #0a0a0a;
             --text: #ffffff;
-            --gold: #ffd700;
-            --gold-light: #fff9c4;
-            --gold-glow: rgba(255, 215, 0, 0.5);
+            --gold: #d4af37;
+            --gold-light: #f4e4b4;
+            --gold-dark: #b8941f;
+            --gold-glow: rgba(212, 175, 55, 0.6);
             --pink: #ff69b4;
             --pink-light: #ffb6c1;
             --pink-dark: #db7093;
+            --pink-glow: rgba(255, 105, 180, 0.4);
             --platinum: #e8e8e8;
             --silver: #c0c0c0;
             --crystal: #f0f0f0;
             --diamond: #b9f2ff;
-            --card-bg: rgba(30, 20, 30, 0.85);
-            --card-border: rgba(255, 215, 0, 0.4);
+            --glitter: #fffacd;
+            --card-bg: rgba(30, 20, 30, 0.9);
+            --card-border: rgba(212, 175, 55, 0.5);
             --shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
             --radius: 16px;
-            --glow: 0 0 40px rgba(255, 215, 0, 0.4);
-            --pink-glow: 0 0 30px rgba(255, 105, 180, 0.3);
+            --glow: 0 0 40px rgba(212, 175, 55, 0.5);
         }
 
         /* ====== RESET PREMIUM ====== */
@@ -45,7 +47,7 @@
             font-weight: 300;
         }
 
-        /* ====== FONDO DE LUJO CON BRILLOS ====== */
+        /* ====== FONDO DE LUJO CON DIAMANTES Y PURPURINA ====== */
         .luxury-bg {
             position: fixed;
             top: 0;
@@ -53,9 +55,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(185, 242, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(185, 242, 255, 0.08) 0%, transparent 50%),
                 linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a0a 100%);
             z-index: -1;
         }
@@ -63,17 +65,37 @@
         /* Diamantes brillantes en el fondo */
         .diamond {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: var(--diamond);
             transform: rotate(45deg);
-            box-shadow: 0 0 20px var(--diamond);
+            box-shadow: 0 0 25px var(--diamond), 0 0 15px var(--diamond);
             animation: twinkle 4s infinite;
+            z-index: -1;
+        }
+
+        /* Partículas de purpurina */
+        .glitter {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--glitter);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--gold-light);
+            animation: float 6s infinite linear;
+            z-index: -1;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
+            0%, 100% { opacity: 0.3; transform: rotate(45deg) scale(0.8); }
+            50% { opacity: 1; transform: rotate(45deg) scale(1.2); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
         /* ====== NAVEGACIÓN DE LUJO ====== */
@@ -104,7 +126,19 @@
             text-decoration: none;
             letter-spacing: 4px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px var(--gold-glow);
+            text-shadow: 0 0 15px var(--gold-glow);
+            position: relative;
+        }
+
+        .luxury-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--pink), transparent);
+            border-radius: 2px;
         }
 
         .nav-links {
@@ -125,6 +159,7 @@
 
         .nav-links a:hover {
             color: var(--pink);
+            text-shadow: 0 0 10px var(--pink-glow);
         }
 
         .nav-links a::after {
@@ -170,8 +205,21 @@
             text-transform: uppercase;
             font-weight: 500;
             border: 1px solid var(--gold);
-            box-shadow: var(--glow);
+            box-shadow: var(--glow), var(--pink-glow);
             animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: shine 3s infinite;
         }
 
         @keyframes pulse {
@@ -179,17 +227,23 @@
             50% { transform: scale(1.05); }
         }
 
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .hero-title {
             font-size: 4.5rem;
             font-weight: 300;
             line-height: 1.1;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--gold), var(--pink-light), var(--gold));
+            background: linear-gradient(135deg, var(--gold), var(--pink-light), var(--gold-dark), var(--pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shimmer 3s linear infinite;
+            background-size: 300% auto;
+            animation: shimmer 4s linear infinite;
             letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
 
         @keyframes shimmer {
@@ -204,6 +258,22 @@
             line-height: 1.7;
             font-weight: 300;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .hero-subtitle::before {
+            content: "✨";
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
         }
 
         .hero-description {
@@ -212,6 +282,17 @@
             margin-bottom: 50px;
             line-height: 1.8;
             max-width: 600px;
+            position: relative;
+        }
+
+        .hero-description::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--pink), transparent);
         }
 
         /* ====== BOTONES DE LUJO BRILLANTES ====== */
@@ -244,7 +325,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
             transition: left 0.6s ease;
         }
 
@@ -294,7 +375,7 @@
             border-radius: 20px;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 50px rgba(255, 215, 0, 0.2), 0 0 30px rgba(255, 105, 180, 0.2);
+            box-shadow: inset 0 0 50px rgba(212, 175, 55, 0.3), 0 0 30px rgba(255, 105, 180, 0.3);
         }
 
         .mirror-display::before {
@@ -304,9 +385,26 @@
             left: 10px;
             right: 10px;
             bottom: 10px;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, rgba(255, 105, 180, 0.1) 100%);
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.15) 50%, rgba(255, 105, 180, 0.15) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 12px;
+        }
+
+        /* Efecto de reflejo en el espejo */
+        .mirror-display::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: mirrorReflect 3s infinite;
+        }
+
+        @keyframes mirrorReflect {
+            0% { left: -100%; }
+            100% { left: 200%; }
         }
 
         /* ====== SECCIÓN DE FUNCIONALIDADES ====== */
@@ -315,6 +413,7 @@
             background: var(--card-bg);
             border-top: 1px solid var(--card-border);
             border-bottom: 1px solid var(--card-border);
+            position: relative;
         }
 
         .section-title {
@@ -326,6 +425,30 @@
             -webkit-text-fill-color: transparent;
             font-weight: 300;
             letter-spacing: 1px;
+            position: relative;
+        }
+
+        .section-title::before, .section-title::after {
+            content: "✦";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 2rem;
+            animation: spin 4s infinite linear;
+        }
+
+        .section-title::before {
+            left: -60px;
+        }
+
+        .section-title::after {
+            right: -60px;
+        }
+
+        @keyframes spin {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
         }
 
         .features-grid {
@@ -354,7 +477,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.05), rgba(255, 105, 180, 0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), rgba(255, 105, 180, 0.08), transparent);
             transition: left 0.6s ease;
         }
 
@@ -372,7 +495,20 @@
             font-size: 3.5rem;
             margin-bottom: 25px;
             color: var(--gold);
-            text-shadow: 0 0 15px var(--gold-glow);
+            text-shadow: 0 0 20px var(--gold-glow);
+            position: relative;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--pink));
+            border-radius: 2px;
         }
 
         .feature-card h3 {
@@ -393,6 +529,7 @@
             padding: 120px 50px;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .occasions-grid {
@@ -409,6 +546,23 @@
             transition: all 0.4s ease;
             position: relative;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .occasion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--pink));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .occasion-card:hover::before {
+            transform: scaleX(1);
         }
 
         .occasion-card:hover {
@@ -421,7 +575,7 @@
             font-size: 3rem;
             margin-bottom: 25px;
             color: var(--pink);
-            text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            text-shadow: 0 0 20px var(--pink-glow);
         }
 
         .occasion-card h3 {
@@ -443,6 +597,7 @@
             text-align: center;
             border-top: 1px solid var(--card-border);
             border-bottom: 1px solid var(--card-border);
+            position: relative;
         }
 
         .cta-title {
@@ -470,6 +625,7 @@
             padding: 60px 50px;
             border-top: 1px solid var(--card-border);
             margin-top: 80px;
+            position: relative;
         }
 
         .footer-content {
@@ -484,6 +640,17 @@
             color: var(--gold);
             margin-bottom: 20px;
             font-size: 1.2rem;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--pink);
         }
 
         .footer-section a {
@@ -491,11 +658,22 @@
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-section a::before {
+            content: '❖';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.8rem;
         }
 
         .footer-section a:hover {
             color: var(--pink);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -521,6 +699,10 @@
             .hero-title {
                 font-size: 3.5rem;
             }
+            
+            .section-title::before, .section-title::after {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
@@ -543,8 +725,8 @@
     </style>
 </head>
 <body>
-    <!-- FONDO DE LUJO CON DIAMANTES -->
-    <div class="luxury-bg" id="diamond-bg"></div>
+    <!-- FONDO DE LUJO CON DIAMANTES Y PURPURINA -->
+    <div class="luxury-bg" id="luxury-bg"></div>
 
     <!-- NAVEGACIÓN -->
     <nav class="luxury-nav">
@@ -712,8 +894,8 @@
     <script>
         // Crear diamantes brillantes en el fondo
         function createDiamonds() {
-            const bg = document.getElementById('diamond-bg');
-            const diamondCount = 15;
+            const bg = document.getElementById('luxury-bg');
+            const diamondCount = 20;
             
             for (let i = 0; i < diamondCount; i++) {
                 const diamond = document.createElement('div');
@@ -724,7 +906,7 @@
                 diamond.style.top = Math.random() * 100 + 'vh';
                 
                 // Tamaño aleatorio
-                const size = 4 + Math.random() * 8;
+                const size = 6 + Math.random() * 10;
                 diamond.style.width = size + 'px';
                 diamond.style.height = size + 'px';
                 
@@ -733,6 +915,32 @@
                 diamond.style.animationDuration = 3 + Math.random() * 4 + 's';
                 
                 bg.appendChild(diamond);
+            }
+        }
+
+        // Crear partículas de purpurina
+        function createGlitter() {
+            const bg = document.getElementById('luxury-bg');
+            const glitterCount = 50;
+            
+            for (let i = 0; i < glitterCount; i++) {
+                const glitter = document.createElement('div');
+                glitter.classList.add('glitter');
+                
+                // Posición aleatoria
+                glitter.style.left = Math.random() * 100 + 'vw';
+                glitter.style.top = Math.random() * 100 + 'vh';
+                
+                // Tamaño aleatorio
+                const size = 2 + Math.random() * 4;
+                glitter.style.width = size + 'px';
+                glitter.style.height = size + 'px';
+                
+                // Animación aleatoria
+                glitter.style.animationDelay = Math.random() * 6 + 's';
+                glitter.style.animationDuration = 4 + Math.random() * 8 + 's';
+                
+                bg.appendChild(glitter);
             }
         }
 
@@ -767,8 +975,9 @@
             observer.observe(el);
         });
 
-        // Inicializar diamantes
+        // Inicializar efectos
         createDiamonds();
+        createGlitter();
     </script>
 </body>
 </html>
